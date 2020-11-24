@@ -7,10 +7,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import Controlador.ControladorPanelBienvenida;
 
+import java.awt.Dimension;
+import java.awt.Font;
+
 @SuppressWarnings("serial")
 public class PanelBienvenida extends JPanel{
-
-	private JButton btnGeneros;
 	private JLabel lblBienvenida;
 	private ControladorPanelBienvenida controladorPanelBienvenida;
 	
@@ -19,27 +20,18 @@ public class PanelBienvenida extends JPanel{
 		
 		setLayout(null);
 		
-		lblBienvenida = new JLabel("Panel Bienvenida");
-		lblBienvenida.setBounds(58, 35, 115, 14);
+		lblBienvenida = new JLabel("\u00A1Bienvenid@!");
+		lblBienvenida.setFont(new Font("Impact", Font.PLAIN, 56));
+		lblBienvenida.setBounds(96, 152, 331, 136);
 		add(lblBienvenida);
-		
-		btnGeneros = new JButton("Generos");
-		btnGeneros.setBounds(58, 116, 120, 23);
-		add(btnGeneros);
 		
 		initializeEvents();
 	}
 	
 	private void initializeEvents() {
-		this.btnGeneros.addActionListener(listenerBotonGeneros(this.controladorPanelBienvenida));
 	}
 	
-	private ActionListener listenerBotonGeneros(ControladorPanelBienvenida controladorPanelBienvenida) {
-		return new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("Ejecutando evento Boton Generos");
-				controladorPanelBienvenida.accionadoBottonMostrarPanelGeneros();
-			}
-		};
-	}
+	
 }
+
+

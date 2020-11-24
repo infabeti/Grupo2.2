@@ -4,11 +4,13 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import Modelo.Modelo;
+
 public class ModeloTest {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testModelo() {
+		Modelo nuevoModelo=new Modelo();
 	}
 
 }

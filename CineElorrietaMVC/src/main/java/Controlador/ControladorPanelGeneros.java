@@ -1,12 +1,14 @@
 package Controlador;
 
+import javax.swing.DefaultListModel;
+
 import Modelo.Modelo;
+import Modelo.Pelicula;
 import Vista.PanelBienvenida;
 import Vista.PanelGeneros;
 import Vista.Vista;
 
 public class ControladorPanelGeneros {
-
 	private Modelo modelo;
 	private Vista vista;
 	private Controlador controlador;
@@ -26,4 +28,12 @@ public class ControladorPanelGeneros {
 	public void accionadoBottonVolverPanelGeneros() {
 		this.controlador.navegarPanelBienvenida();
 	}
+	public void accionadoBotonSeleccionarPanelGeneros(int genero) {
+
+		this.controlador.navegarPanelPeliculas(genero);
+	}
+	public PanelGeneros makePanelGeneros(ControladorPanelGeneros controladorGeneros) {
+		return new PanelGeneros(controladorGeneros);
+	}
+
 }

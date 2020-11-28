@@ -63,53 +63,6 @@ public class TestControladorPanelPeliculas {
 
 }
 	
-	@Test
-	public void minutosTotalesSabadoTest() {
-		resultadoEsperado=100;
-		
-		
-		controladorPeliculas = new ControladorPanelPeliculas(modeloMock,
-				vistaMock, controladorMock);
-		//Pelicula peli1=new
-		ArrayList<Pelicula> peliInstancia=new ArrayList();
-		Pelicula peli=new Pelicula(1,"Test Pelicula",100);
-		peliInstancia.add(peli);
-		controladorPeliculas.setPeliculasSabado(peliInstancia);
-		
-		
-		resultado = controladorPeliculas.minutosTotalesSabado();
-		
-		assertEquals(resultadoEsperado, resultado);
-		
-		
-		
-	
-
-}
-	//testeo del boton que nos lleva al panel de bienvenida
-	@Test
-	public void minutosTotalesDomingoTest() {
-		resultadoEsperado=100;
-		
-		
-		controladorPeliculas = new ControladorPanelPeliculas(modeloMock,
-				vistaMock, controladorMock);
-		//Pelicula peli1=new
-		ArrayList<Pelicula> peliInstancia=new ArrayList();
-		Pelicula peli=new Pelicula(1,"Test Pelicula",100);
-		peliInstancia.add(peli);
-		controladorPeliculas.setPeliculasDomingo(peliInstancia);
-		
-		
-		resultado = controladorPeliculas.minutosTotalesDomingo();
-		
-		assertEquals(resultadoEsperado, resultado);
-		
-		
-		
-	
-
-}
 			
 			@Test
 			public void testSetPeliculasSabado() {

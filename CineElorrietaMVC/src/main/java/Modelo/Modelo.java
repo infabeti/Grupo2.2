@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Modelo {
@@ -46,6 +47,16 @@ public class Modelo {
 			escribirErrorEnLog(e.toString());
 			e.printStackTrace();
 		}
+	}
+	
+	public int minutosTotales(ArrayList<Pelicula> peliculas) {
+		int minutosTotales=0;
+		for(int i=0;i<peliculas.size();i++) {
+			minutosTotales=(int) (minutosTotales+peliculas.get(i).getDuracion());
+		}
+		
+		return minutosTotales;
+		
 	}
 
 }

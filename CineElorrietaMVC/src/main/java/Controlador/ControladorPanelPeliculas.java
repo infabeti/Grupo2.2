@@ -53,28 +53,7 @@ public class ControladorPanelPeliculas {
 		controlador.navegarPanelGeneros();
 		
 	}
-	public int minutosTotalesSabado() {
-		int minutosTotales=0;
-		for(int i=0;i<peliculasSabado.size();i++) {
-			minutosTotales=(int) (minutosTotales+peliculasSabado.get(i).getDuracion());
-		}
-		
-		
-		return minutosTotales;
-		
-		
-	}
-	public int minutosTotalesDomingo() {
-		int minutosTotales=0;
-		for(int i=0;i<peliculasDomingo.size();i++) {
-			minutosTotales=(int) (minutosTotales+peliculasDomingo.get(i).getDuracion());
-		}
-		
-		
-		return minutosTotales;
-		
-		
-	}
+
 	
 	public void accionadoBotonAnadirPanelPeliculas(JList lista_pelis) {
 		Pelicula[] peliculas=PanelGeneros.getPeliculas();
@@ -102,19 +81,19 @@ public class ControladorPanelPeliculas {
 					
 					
 					//Para que se pueda añadir una pelicula tiene que sumar menos de 8horas el sabado completo (480minutos)
-					if((peliculas[i].getDuracion()+minutosTotalesSabado())<480){
+					if((peliculas[i].getDuracion()+modelo.minutosTotales(peliculasSabado))<480){
 						peliculasSabado.add(peliculas[i]);
 						controlador.navegarPanelGeneros();
 						System.out.println("Peliculas Sabado-> "+peliculasSabado.size());
-						System.out.println("Minutos-> "+minutosTotalesSabado());
+						System.out.println("Minutos-> "+modelo.minutosTotales(peliculasSabado));
 						
 						
 					}
-					else if((peliculas[i].getDuracion()+minutosTotalesDomingo())<360){
+					else if((peliculas[i].getDuracion()+modelo.minutosTotales(peliculasDomingo))<360){
 						peliculasDomingo.add(peliculas[i]);
 						controlador.navegarPanelGeneros();
 						System.out.println("Peliculas Domingo-> "+peliculasDomingo.size());
-						System.out.println("Minutos-> "+minutosTotalesDomingo());
+						System.out.println("Minutos-> "+modelo.minutosTotales(peliculasDomingo));
 						
 					}
 					else {

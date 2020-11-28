@@ -31,7 +31,7 @@ public class ControladorPanelFin {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
-			Controlador.escribirErrorEnLog(e.toString());
+			modelo.escribirErrorEnLog(e.toString());
 			e.printStackTrace();
 		}
 		System.exit(0);

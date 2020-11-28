@@ -32,7 +32,7 @@ public class ControladorPanelBienvenida {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
-			Controlador.escribirErrorEnLog(e.toString());
+			modelo.escribirErrorEnLog(e.toString());
 			e.printStackTrace();
 		}
 		this.controlador.navegarPanelLogin();

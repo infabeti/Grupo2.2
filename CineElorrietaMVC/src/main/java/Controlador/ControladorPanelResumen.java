@@ -26,8 +26,6 @@ public class ControladorPanelResumen {
 		int horas,minutos;
 		
 		
-		//txtArea.append("Goodbye Cruel World\n");
-		
 		panelResumen.getTxtResumen().append("Sábado: \n");
 		
 		for(int i=0;i<ControladorPanelPeliculas.getPeliculasSabado().size();i++) {

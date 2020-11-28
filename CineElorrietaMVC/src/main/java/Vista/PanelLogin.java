@@ -59,8 +59,10 @@ public class PanelLogin extends JPanel {
 		JButton btnEntrar = new JButton("Entrar");
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controladorPanelLogin.accionadoBotonEntrarPanelLogin(txtUsuario.getText()
-						, String.valueOf(getPassContrasena().getPassword()));
+				if(!controladorPanelLogin.accionadoBotonEntrarPanelLogin(txtUsuario.getText()
+						, String.valueOf(getPassContrasena().getPassword()))) {
+					lblError.setVisible(true);
+				}
 				
 				
 			}
@@ -82,13 +84,7 @@ public class PanelLogin extends JPanel {
 
 	}
 
-	public JLabel getLblError() {
-		return lblError;
-	}
-
-	public void setLblError(JLabel lblError) {
-		this.lblError = lblError;
-	}
+	
 
 	public JTextField getTxtUsuario() {
 		return txtUsuario;

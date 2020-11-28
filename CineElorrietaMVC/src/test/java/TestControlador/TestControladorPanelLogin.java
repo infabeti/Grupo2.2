@@ -61,15 +61,8 @@ public class TestControladorPanelLogin {
 		verify(controladorMock, times(1)).navegarPanelGeneros();
 		}
 	}
-	public void accionadoBotonEntrarPanelLoginFalse() {
-		
-		controladorLogin = new ControladorPanelLogin(modeloMock,
-				vistaMock, controladorMock);
-		
-		controladorLogin.accionadoBotonEntrarPanelLogin(usuario, pswd);
 	
-		verify(spyControladorLogin, times(1)).mostrarLoginError();
-		}
+	
 	
 }
 

@@ -28,26 +28,30 @@ public class ControladorPanelLogin {
 		this.vista.mostrarPanel(this.panelLogin);
 	}
 	
-	public void mostrarLoginError() {/*no se puede testear, es de la vista */
-		this.panelLogin.getLblError().setVisible(true);
-	}
+	
 	public PanelLogin makePanelLogin(ControladorPanelLogin controladorLogin) {
 		return new PanelLogin(controladorLogin);
 	}
 
-	public void accionadoBotonEntrarPanelLogin(String usuario2, String pass) {
+	public boolean accionadoBotonEntrarPanelLogin(String usuario2, String pass) {
 		System.out.println("Ejecutando evento Boton Entrar");
 		System.out.println(usuario2);
 		System.out.println(pass);
+		boolean correcto=false;
 		
 		if(usuario2.equals(this.usuario) && pass.equals(this.contrasena)) {		
 			System.out.println("Usuario/Contraseña correctos");
+			correcto=true;
 			this.controlador.navegarPanelGeneros();
 		}
 		else {
 			System.out.println("Usuario/contraseña incorrectos");
-			mostrarLoginError();
+			correcto=false;
+			//mostrarLoginError();
+			
 		}
+		
+		return correcto;
 		
 	}
 	

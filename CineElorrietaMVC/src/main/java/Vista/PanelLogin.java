@@ -61,7 +61,7 @@ public class PanelLogin extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				if(!controladorPanelLogin.accionadoBotonEntrarPanelLogin(txtUsuario.getText()
 						, String.valueOf(getPassContrasena().getPassword()))) {
-					lblError.setVisible(true);
+					mostrarError();
 				}
 				
 				
@@ -84,7 +84,9 @@ public class PanelLogin extends JPanel {
 
 	}
 
-	
+	public void mostrarError() {
+		lblError.setVisible(true);
+	}
 
 	public JTextField getTxtUsuario() {
 		return txtUsuario;

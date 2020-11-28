@@ -33,5 +33,19 @@ public class Modelo {
 			e.printStackTrace();
 		}	 
 	}
+	
+	/**
+	 * Metodo que para la ejecuccion por el tiempo deseado
+	 * @param tiempo tiempo que queremos que este detenido en milisegundos (3000->3s)
+	 */
+	public void esperar(int tiempo) {
+		try {
+			Thread.sleep(tiempo);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			escribirErrorEnLog(e.toString());
+			e.printStackTrace();
+		}
+	}
 
 }

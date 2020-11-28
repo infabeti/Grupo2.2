@@ -26,15 +26,9 @@ public class ControladorPanelBienvenida {
 		
 		
 		
-		//Parar ejecucion durante 3 segundos y Mostrar Panel de Login
+		modelo.esperar(3000);
 		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			modelo.escribirErrorEnLog(e.toString());
-			e.printStackTrace();
-		}
+		
 		this.controlador.navegarPanelLogin();
 		
 		

@@ -25,15 +25,9 @@ public class ControladorPanelFin {
 		
 		
 		
+		modelo.esperar(2000);
 		
-		//se cierra la ventana
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			modelo.escribirErrorEnLog(e.toString());
-			e.printStackTrace();
-		}
+		
 		System.exit(0);
 	
 	}

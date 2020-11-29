@@ -73,9 +73,13 @@ public class PanelGeneros extends JPanel {
 		add(lblGeneros);
 
 		JTextPane textPaneGeneros = new JTextPane();
+		textPaneGeneros.setEditable(false);
+		textPaneGeneros.setEnabled(false);
+		textPaneGeneros.setDisabledTextColor(Color.BLACK);
 		textPaneGeneros.setBounds(61, 63, 168, 137);
 		add(textPaneGeneros);
 		textPaneGeneros.setText("1. DRAMA\n2. COMEDIA\r\n3. TERROR\r\n4. CIENCIA FICCION");
+		
 
 		JLabel lbl_SeleccionGenero = new JLabel("Genero seleccionado");
 		lbl_SeleccionGenero.setBounds(61, 227, 149, 14);

@@ -9,6 +9,7 @@ import Controlador.ControladorPanelResumen;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 
 public class PanelResumen extends JPanel {
@@ -27,6 +28,7 @@ public class PanelResumen extends JPanel {
 		txtResumen = new JTextArea();
 		txtResumen.setBounds(91, 96, 302, 203);
 		txtResumen.setEnabled(false);
+		txtResumen.setDisabledTextColor(Color.BLACK);
 		add(txtResumen);
 		
 		JButton btnAceptar = new JButton("Aceptar");

@@ -8,6 +8,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import Controlador.Controlador;
 import Controlador.ControladorPanelGeneros;
 import Modelo.Pelicula;
 
@@ -31,34 +33,8 @@ public class PanelGeneros extends JPanel {
 	private JTextField txt_seleccion;
 	String resultado="";
 	static String seleccion;
-	private static Pelicula[] peliculas = new Pelicula[16];
-
+	private Pelicula[] peliculas=Controlador.getPeliculas();
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros) {
-
-	
-		//this.setSize(593, 439);
-	
-
-		// ARRAY DE PELICULAS
-		peliculas[0] = new Pelicula(1, "Handia", 116);
-		peliculas[1] = new Pelicula(1, "La lista de Schindler", 197);
-		peliculas[2] = new Pelicula(1, "Cadena Perpetua", 142);
-		peliculas[3] = new Pelicula(1, "Million Dollar Baby", 133);
-
-		peliculas[4] = new Pelicula(2, "Scary movie", 90);
-		peliculas[5] = new Pelicula(2, "El gran Lebowsky", 119);
-		peliculas[6] = new Pelicula(2, "La vida de Brian", 94);
-		peliculas[7] = new Pelicula(2, "Aterriza como puedas", 117);
-
-		peliculas[8] = new Pelicula(3, "Psicosis", 109);
-		peliculas[9] = new Pelicula(3, "El resplandor", 146);
-		peliculas[10] = new Pelicula(3, "Dracula", 155);
-		peliculas[11] = new Pelicula(3, "Cisne negro", 100);
-
-		peliculas[12] = new Pelicula(4, "2001: Odisea en el espacio", 142);
-		peliculas[13] = new Pelicula(4, "La novia de Frankenstein", 75);
-		peliculas[14] = new Pelicula(4, "El planeta de los simios", 115);
-		peliculas[15] = new Pelicula(4, "Alien, el octavo pasajero", 117);
 
 		// ARRAYLIST PARA PARA PELIS SELECCIONADAS
 		ArrayList <Pelicula> pelis_seleccion = new ArrayList<>();
@@ -225,13 +201,6 @@ public class PanelGeneros extends JPanel {
 		};
 	}
 
-	public static  Pelicula[] getPeliculas() {
-		return peliculas;
-	}
-
-	public static void setPeliculas(Pelicula[] peliculas) {
-		PanelGeneros.peliculas = peliculas;
-	}
 
 	public static String getSeleccion() {
 		return seleccion;

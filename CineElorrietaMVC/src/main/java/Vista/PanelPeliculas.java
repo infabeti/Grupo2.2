@@ -7,7 +7,7 @@ import javax.swing.JList;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-
+import Controlador.Controlador;
 import Controlador.ControladorPanelPeliculas;
 import Modelo.Pelicula;
 import java.awt.event.ActionListener;
@@ -55,7 +55,7 @@ public class PanelPeliculas extends JPanel {
 		modelo = new DefaultListModel();
 		
 		
-		 Pelicula[] peliculas=PanelGeneros.getPeliculas();
+		 Pelicula[] peliculas=Controlador.getPeliculas();
 		 
 		 int genero=Integer.parseInt(PanelGeneros.getSeleccion());
 		

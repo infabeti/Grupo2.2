@@ -56,7 +56,7 @@ public class ControladorPanelPeliculas {
 
 	
 	public void accionadoBotonAnadirPanelPeliculas(JList lista_pelis) {
-		Pelicula[] peliculas=PanelGeneros.getPeliculas();
+		Pelicula[] peliculas=controlador.getPeliculas();
 		//JList lista_pelis=PanelPeliculas.getLista_pelis();
 		//System.out.println((String)lista_pelis.getSelectedValue());
 		

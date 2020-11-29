@@ -64,65 +64,8 @@ public class TestControladorPanelPeliculas {
 }
 	
 			
-			@Test
-			public void testSetPeliculasSabado() {
-				controladorPeliculas = new ControladorPanelPeliculas(modeloMock,
-						vistaMock, controladorMock);
-				
-				ArrayList<Pelicula> peliInstancia=new ArrayList();
-				controladorPeliculas.setPeliculasSabado(peliInstancia);
-				
-			    
-			    // TODO review the generated test code and remove the default call to fail.
-			    assertEquals(controladorPeliculas.getPeliculasSabado(), peliInstancia);
-			}
-
+	
 			
-			@Test
-			public void testGetPeliculasSabado() {
-				controladorPeliculas = new ControladorPanelPeliculas(modeloMock,
-						vistaMock, controladorMock);
-				
-				ArrayList<Pelicula> peliInstancia=new ArrayList();
-				controladorPeliculas.setPeliculasSabado(peliInstancia);
-			    
-				ArrayList<Pelicula> resultadoEsperado=new ArrayList();
-			    
-			    
-				ArrayList<Pelicula> resultado = controladorPeliculas.getPeliculasSabado();
-			    assertEquals(resultadoEsperado, resultado);
-			}
-			
-			@Test
-			public void testSetPeliculasDomingo() {
-				controladorPeliculas = new ControladorPanelPeliculas(modeloMock,
-						vistaMock, controladorMock);
-				
-				ArrayList<Pelicula> peliInstancia=new ArrayList();
-				controladorPeliculas.setPeliculasDomingo(peliInstancia);
-				
-			    
-			    // TODO review the generated test code and remove the default call to fail.
-			    assertEquals(controladorPeliculas.getPeliculasDomingo(), peliInstancia);
-			}
-
-			
-			@Test
-			public void testGetPeliculasDomingo() {
-				controladorPeliculas = new ControladorPanelPeliculas(modeloMock,
-						vistaMock, controladorMock);
-				
-				ArrayList<Pelicula> peliInstancia=new ArrayList();
-				controladorPeliculas.setPeliculasDomingo(peliInstancia);
-			    
-				ArrayList<Pelicula> resultadoEsperado=new ArrayList();
-			    
-			    
-				ArrayList<Pelicula> resultado = controladorPeliculas.getPeliculasDomingo();
-			    assertEquals(resultadoEsperado, resultado);
-			}
-			
-			@Test
 			public void testAccionadoBotonAnadirPanelPeliculas() {
 				controladorPeliculas = new ControladorPanelPeliculas(modeloMock,
 						vistaMock, controladorMock);

@@ -55,8 +55,6 @@ public class TestControladorPanelResumen {
 		Pelicula peli1=new Pelicula(2,"Handia",126);
 		peliculas.add(peli1);
 		
-		ControladorPanelPeliculas.setPeliculasSabado(peliculas);
-		ControladorPanelPeliculas.setPeliculasDomingo(peliculas);
 	
 		controladorResumen.accionadoBotonAceptarPanelResumen();
 		

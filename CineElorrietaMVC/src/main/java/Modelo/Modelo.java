@@ -8,7 +8,26 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import Controlador.Controlador;
+
 public class Modelo {
+
+	//Estos dos arrays tendran almacenadas las peliculas que selecciona el usuario
+	private static ArrayList<Pelicula> peliculasSabado=new ArrayList <Pelicula>();
+	private static ArrayList<Pelicula> peliculasDomingo=new ArrayList <Pelicula>();
+	public static ArrayList<Pelicula> getPeliculasSabado() {
+		return peliculasSabado;
+	}
+
+	
+
+	public static ArrayList<Pelicula> getPeliculasDomingo() {
+		return peliculasDomingo;
+	}
 
 	/**
 	 * Metodo que escribe un error en un fichero junto a la fecha de este, si este no existe lo crea
@@ -49,6 +68,12 @@ public class Modelo {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param peliculas ArrayList de peliculas (generalmente se introducira las del sabado o domingo)
+	 * @return suma de minutos de todas las peliculas que estan en el interior del ArrayList
+	 */
+	
 	public int minutosTotales(ArrayList<Pelicula> peliculas) {
 		int minutosTotales=0;
 		for(int i=0;i<peliculas.size();i++) {
@@ -58,5 +83,67 @@ public class Modelo {
 		return minutosTotales;
 		
 	}
+	/**
+	 * 
+	 * @param lista_pelis
+	 */
+	
+	public void introducirPeliculaSeleccionada(JList lista_pelis, Controlador controlador){
+		Pelicula[] peliculas=controlador.getPeliculas();
+		//JList lista_pelis=PanelPeliculas.getLista_pelis();
+		//System.out.println((String)lista_pelis.getSelectedValue());
+		
+	
+		if(lista_pelis.getSelectedValue()==null) {
+			
+			System.out.println("No has seleccionado ninguna pelicula");
+			
+		}
+		else {
+			String titulo;
+			
+			for(int i=0;i<peliculas.length;i++) {
+				titulo=peliculas[i].getTitulo();
+				//System.out.println(titulo+"  "+(String)lista_pelis.getSelectedValue());
+				
+				
+			
+				
+				
+				if(titulo.toString().trim().equals(lista_pelis.getSelectedValue().toString().trim())) {
+					
+					
+					//Para que se pueda añadir una pelicula tiene que sumar menos de 8horas el sabado completo (480minutos)
+					if((peliculas[i].getDuracion()+minutosTotales(getPeliculasSabado()))<480){
+						getPeliculasSabado().add(peliculas[i]);
+						controlador.navegarPanelGeneros();
+						System.out.println("Peliculas Sabado-> "+getPeliculasSabado().size());
+						System.out.println("Minutos-> "+minutosTotales(getPeliculasSabado()));
+						
+						
+					}
+					else if((peliculas[i].getDuracion()+minutosTotales(getPeliculasDomingo()))<360){
+						getPeliculasDomingo().add(peliculas[i]);
+						controlador.navegarPanelGeneros();
+						System.out.println("Peliculas Domingo-> "+getPeliculasDomingo().size());
+						System.out.println("Minutos-> "+minutosTotales(getPeliculasDomingo()));
+						
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "No se puede introducir la pelicula, porque no hay tiempo");
+						controlador.navegarPanelResumen();
+					}
+					
+					
+				}
+				
+			}
+			
+		}
+	}
+
+	
+
+
 
 }

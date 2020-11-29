@@ -28,14 +28,14 @@ public class ControladorPanelResumen {
 		
 		panelResumen.getTxtResumen().append("Sábado: \n");
 		
-		for(int i=0;i<ControladorPanelPeliculas.getPeliculasSabado().size();i++) {
+		for(int i=0;i<modelo.getPeliculasSabado().size();i++) {
 			
 			
 			
-			horas=(int) Math.floor((ControladorPanelPeliculas.getPeliculasSabado().get(i).getDuracion())/60);
-			minutos=(int) Math.round((ControladorPanelPeliculas.getPeliculasSabado().get(i).getDuracion())%60);
+			horas=(int) Math.floor((modelo.getPeliculasSabado().get(i).getDuracion())/60);
+			minutos=(int) Math.round((modelo.getPeliculasSabado().get(i).getDuracion())%60);
 			
-			panelResumen.getTxtResumen().append(ControladorPanelPeliculas.getPeliculasSabado().get(i).getTitulo()+"-> "+
+			panelResumen.getTxtResumen().append(modelo.getPeliculasSabado().get(i).getTitulo()+"-> "+
 					horas+"h "+minutos+"m \n");
 			
 			
@@ -43,12 +43,12 @@ public class ControladorPanelResumen {
 		
 		panelResumen.getTxtResumen().append("\nDomingo: \n");
 		
-		for(int i=0;i<ControladorPanelPeliculas.getPeliculasDomingo().size();i++) {
-			horas=(int) Math.floor((ControladorPanelPeliculas.getPeliculasDomingo().get(i).getDuracion())/60);
-			minutos=(int) Math.round((ControladorPanelPeliculas.getPeliculasDomingo().get(i).getDuracion())%60);
+		for(int i=0;i<modelo.getPeliculasDomingo().size();i++) {
+			horas=(int) Math.floor((modelo.getPeliculasDomingo().get(i).getDuracion())/60);
+			minutos=(int) Math.round((modelo.getPeliculasDomingo().get(i).getDuracion())%60);
 			
 			
-			panelResumen.getTxtResumen().append(ControladorPanelPeliculas.getPeliculasDomingo().get(i).getTitulo()+"-> "+
+			panelResumen.getTxtResumen().append(modelo.getPeliculasDomingo().get(i).getTitulo()+"-> "+
 					horas+"h "+minutos+"m \n");
 			
 			
@@ -58,8 +58,8 @@ public class ControladorPanelResumen {
 	
 	public void accionadoBotonRechazarPanelResumen() {
 		controlador.navegarPanelGeneros();
-		ControladorPanelPeliculas.getPeliculasSabado().removeAll(ControladorPanelPeliculas.getPeliculasSabado());
-		ControladorPanelPeliculas.getPeliculasDomingo().removeAll(ControladorPanelPeliculas.getPeliculasDomingo());
+		modelo.getPeliculasSabado().removeAll(modelo.getPeliculasSabado());
+		modelo.getPeliculasDomingo().removeAll(modelo.getPeliculasDomingo());
 		
 	}
 	

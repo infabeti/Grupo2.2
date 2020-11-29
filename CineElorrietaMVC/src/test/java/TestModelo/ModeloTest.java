@@ -42,5 +42,22 @@ public class ModeloTest {
 
 }
 	 */
+	
+	/*
+	 	@Test
+			public void testGetPeliculasSabado() {
+				controladorPeliculas = new ControladorPanelPeliculas(modeloMock,
+						vistaMock, controladorMock);
+				
+				ArrayList<Pelicula> peliInstancia=new ArrayList();
+				controladorPeliculas.setPeliculasSabado(peliInstancia);
+			    
+				ArrayList<Pelicula> resultadoEsperado=new ArrayList();
+			    
+			    
+				ArrayList<Pelicula> resultado = controladorPeliculas.getPeliculasSabado();
+			    assertEquals(resultadoEsperado, resultado);
+			}
+	 */
 
 }

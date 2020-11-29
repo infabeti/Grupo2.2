@@ -141,6 +141,46 @@ public class Modelo {
 			
 		}
 	}
+	/**
+	 * Metodo para escribir en el panel de Resumen el texto con la lista de peliculas
+	 * @return un string con saltos de linea incluidos del resumen
+	 */
+	public String resumenEscrito() {
+		String resultadoFinal="";
+		int horas,minutos;
+		
+		
+		resultadoFinal=resultadoFinal+"Sábado: \n";
+		
+		for(int i=0;i<getPeliculasSabado().size();i++) {
+			
+			
+			
+			horas=(int) Math.floor((getPeliculasSabado().get(i).getDuracion())/60);
+			minutos=(int) Math.round((getPeliculasSabado().get(i).getDuracion())%60);
+			
+			resultadoFinal=resultadoFinal+getPeliculasSabado().get(i).getTitulo()+"-> "+
+					horas+"h "+minutos+"m \n";
+			
+			
+		}
+		
+		resultadoFinal=resultadoFinal+"\nDomingo: \n";
+		
+		for(int i=0;i<getPeliculasDomingo().size();i++) {
+			horas=(int) Math.floor((getPeliculasDomingo().get(i).getDuracion())/60);
+			minutos=(int) Math.round((getPeliculasDomingo().get(i).getDuracion())%60);
+			
+			
+			resultadoFinal=resultadoFinal+getPeliculasDomingo().get(i).getTitulo()+"-> "+
+					horas+"h "+minutos+"m \n";
+			
+			
+		}
+		
+		return resultadoFinal;
+		
+	}
 
 	
 

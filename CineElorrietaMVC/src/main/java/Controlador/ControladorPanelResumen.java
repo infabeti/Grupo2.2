@@ -23,36 +23,11 @@ public class ControladorPanelResumen {
 	public void mostrarPanelResumen() {
 		this.panelResumen = new PanelResumen(this);
 		this.vista.mostrarPanel(this.panelResumen);
-		int horas,minutos;
 		
 		
-		panelResumen.getTxtResumen().append("Sábado: \n");
 		
-		for(int i=0;i<modelo.getPeliculasSabado().size();i++) {
-			
-			
-			
-			horas=(int) Math.floor((modelo.getPeliculasSabado().get(i).getDuracion())/60);
-			minutos=(int) Math.round((modelo.getPeliculasSabado().get(i).getDuracion())%60);
-			
-			panelResumen.getTxtResumen().append(modelo.getPeliculasSabado().get(i).getTitulo()+"-> "+
-					horas+"h "+minutos+"m \n");
-			
-			
-		}
+		panelResumen.getTxtResumen().append(modelo.resumenEscrito());
 		
-		panelResumen.getTxtResumen().append("\nDomingo: \n");
-		
-		for(int i=0;i<modelo.getPeliculasDomingo().size();i++) {
-			horas=(int) Math.floor((modelo.getPeliculasDomingo().get(i).getDuracion())/60);
-			minutos=(int) Math.round((modelo.getPeliculasDomingo().get(i).getDuracion())%60);
-			
-			
-			panelResumen.getTxtResumen().append(modelo.getPeliculasDomingo().get(i).getTitulo()+"-> "+
-					horas+"h "+minutos+"m \n");
-			
-			
-		}
 		
 	}
 	

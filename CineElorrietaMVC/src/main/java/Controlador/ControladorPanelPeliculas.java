@@ -33,12 +33,7 @@ public class ControladorPanelPeliculas {
 		this.panelPeliculas = new PanelPeliculas(this);
 		this.vista.mostrarPanel(this.panelPeliculas);
 		System.out.println("Este es el genero seleccionado: "+genero);
-		//Cargar las peliculas del genero seleccionado
-		
-		
-		
-		 
-		
+	
 		
 	}
 	
@@ -56,6 +51,22 @@ public class ControladorPanelPeliculas {
 	public PanelPeliculas makePanelPeliculas(ControladorPanelPeliculas controladorPeliculas) {
 		return new PanelPeliculas(controladorPeliculas);
 	}
+
+	public Modelo getModelo() {
+		return modelo;
+	}
+
+	public Vista getVista() {
+		return vista;
+	}
+
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+
+	
+	
 
 
 	

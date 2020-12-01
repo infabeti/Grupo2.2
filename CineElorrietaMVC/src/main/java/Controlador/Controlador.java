@@ -14,7 +14,7 @@ public class Controlador {
 	private ControladorPanelPeliculas controladorPanelPeliculas;
 	private ControladorPanelResumen controladorPanelResumen;
 	private ControladorPanelFin controladorPanelFin;
-	private static Pelicula[] peliculas = new Pelicula[16];
+	private Pelicula[] peliculas = new Pelicula[16];
 	
 	public Controlador(Modelo modelo, Vista vista) {
 		this.modelo = modelo;
@@ -87,12 +87,10 @@ public class Controlador {
 	public ControladorPanelGeneros makeControladorGeneros(Modelo modelo, Vista vista, Controlador controlador) {
 		return new ControladorPanelGeneros(this.modelo, this.vista, this);
 	}
-	public static Pelicula[] getPeliculas() {
+	public  Pelicula[] getPeliculas() {
 		return peliculas;
 	}
-	public static void setPeliculas(Pelicula[] peliculas) {
-		Controlador.peliculas = peliculas;
-	}
+
 	public Modelo getModelo() {
 		return modelo;
 	}

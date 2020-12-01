@@ -49,23 +49,27 @@ public class ModeloTest {
 	 @Rule
 	    public TemporaryFolder folder = new TemporaryFolder();
 	 @Test
-	public void escribirErrorEnLogTest() throws IOException {
+	public void escribirErrorEnLogCorrectoTest() throws IOException {
 		 File file=folder.newFile("errores.txt");
 		 modelo.escribirErrorEnLog("Test Error");
 		 
-		 
-		 
-	 
-		 
-		 
+
 		 
 	 }
+	 /*
+	 @Test
+		public void escribirErrorEnLogFalloTest() throws IOException {
+			 File file=folder.newFile("errores.txt");
+			 org.junit.Assert.(modelo.escribirErrorEnLog("Test Error")).andThrow(
+				        new IOException("Something terrible happened"));
+			 
+
+			 
+		 }
+		 */
 	 @Test
 		public void esperarTestCorrecto() {
-
-			 modelo.esperar(3000);
-			
-			 	 
+			 assertEquals(true, modelo.esperar(3000));
 			 
 		 }
 	
@@ -96,7 +100,7 @@ public class ModeloTest {
 
 }
 	 @Test
-		public void resumenEscritoTest() {
+		public void resumenEscritoVacioTest() {
 			String resultadoEsperado="";
 			String resultado;
 			resultadoEsperado=resultadoEsperado+"Sábado: \n";
@@ -104,6 +108,34 @@ public class ModeloTest {
 			
 			
 			modelo=new Modelo();
+			
+			
+			
+			resultado = modelo.resumenEscrito();
+			
+			assertEquals(resultadoEsperado, resultado);
+			
+			
+	}
+	 @Test
+		public void resumenEscritoRellenoTest() {
+			String resultadoEsperado="";
+			String resultado;
+			Pelicula peli1=new Pelicula(2,"Titulo Test",110);
+			
+
+			
+			modelo=new Modelo();
+			modelo.getPeliculasSabado().add(peli1);
+			modelo.getPeliculasDomingo().add(peli1);
+			
+			//resultadoFinal=resultadoFinal+getPeliculasSabado().get(i).getTitulo()+"-> "+
+			//horas+"h "+minutos+"m \n";
+			resultadoEsperado=resultadoEsperado+"Sábado: \n";
+			resultadoEsperado=resultadoEsperado+peli1.getTitulo()+"-> 1h 50m \n";
+			
+			resultadoEsperado=resultadoEsperado+"\nDomingo: \n";
+			resultadoEsperado=resultadoEsperado+peli1.getTitulo()+"-> 1h 50m \n";
 			
 			
 			

@@ -47,6 +47,17 @@ public class ControladorPanelResumen {
 	public PanelResumen makePanelResumen(ControladorPanelResumen controladorResumen) {
 		return new PanelResumen(controladorResumen);
 	}
+	public Modelo getModelo() {
+		return modelo;
+	}
+	public Vista getVista() {
+		return vista;
+	}
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+	
 	
 	
 	

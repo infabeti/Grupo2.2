@@ -33,7 +33,7 @@ public class PanelGeneros extends JPanel {
 	private JTextField txt_seleccion;
 	String resultado="";
 	static String seleccion;
-	private Pelicula[] peliculas=Controlador.getPeliculas();
+	
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros) {
 
 		// ARRAYLIST PARA PARA PELIS SELECCIONADAS
@@ -91,6 +91,7 @@ public class PanelGeneros extends JPanel {
 		
 
 			public void actionPerformed(ActionEvent arg0) {
+				Pelicula[] peliculas=controladorPanelGeneros.getControlador().getPeliculas();
 				
 				seleccion = txt_seleccion.getText();// recogemos el dato de seleccion de genero
 

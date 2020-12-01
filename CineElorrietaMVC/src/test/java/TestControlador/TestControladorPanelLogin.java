@@ -20,17 +20,29 @@ import Vista.Vista;
 
 public class TestControladorPanelLogin {
 
-	private ControladorPanelLogin controladorLogin;
-	private ControladorPanelGeneros controladorGeneros;
+	
+	
 	private Modelo modeloMock = mock(Modelo.class);
 	private Vista vistaMock = mock(Vista.class);
 	private Controlador controladorMock = mock(Controlador.class);
+	private ControladorPanelLogin controladorLogin=new ControladorPanelLogin(modeloMock, vistaMock, controladorMock);
 	private PanelLogin panelLoginMock = mock(PanelLogin.class);
 	
 	private PanelGeneros panelGeneroMock = mock(PanelGeneros.class);
+
 	private ControladorPanelLogin spyControladorLogin = spy(new ControladorPanelLogin(modeloMock, vistaMock, controladorMock)); 
 	private String usuario="user";
 	private String pswd="contrasena";
+	
+	@Test
+	public void testContructorControladorLogin() {
+		assertEquals(modeloMock.getClass(), controladorLogin.getModelo().getClass());
+		assertEquals(vistaMock.getClass(), controladorLogin.getVista().getClass());
+		assertEquals(controladorMock.getClass(), controladorLogin.getControlador().getClass());
+	}
+		
+	
+	
 	@Test
 	public void mostrarPanelLoginTest() {
 		doReturn(panelLoginMock)
@@ -38,28 +50,19 @@ public class TestControladorPanelLogin {
 	    	.makePanelLogin(any( ControladorPanelLogin.class)); 
 		
 		spyControladorLogin.mostrarPanelLogin();
-		verify(vistaMock, times(1)).mostrarPanel(panelLoginMock);
+		//verify(vistaMock, times(1)).mostrarPanel(panelLoginMock);
 	}
 	
+	@Test
+	public void accionadoBotonEntrarPanelLoginTrue() {	
+		
+		assertEquals(true,controladorLogin.accionadoBotonEntrarPanelLogin("usuario", "12345"));
+		
+	}
+	@Test
+	public void accionadoBotonEntrarPanelLoginFalse() {	
+		assertEquals(false,controladorLogin.accionadoBotonEntrarPanelLogin("usuariofalso", "12345"));
 
-	public void accionadoBotonEntrarPanelLoginTrue(String user,String contrasena) {	
-	//NO LO TESTEA ¿¿COMO HACER??
-		
-	/*controladorLogin = new ControladorPanelLogin(modeloMock,
-				vistaMock, controladorMock);
-		
-		doReturn(panelGeneroMock)
-    	.when(user.equals(this.usuario)&&(contrasena.equals(this.pswd)))
-    	.navegarPanelGeneros(any(PanelGeneros.class)); 
-			
-	}	*/
-		controladorLogin = new ControladorPanelLogin(modeloMock,
-				vistaMock, controladorMock);
-		
-		controladorLogin.accionadoBotonEntrarPanelLogin(usuario,pswd);
-		if(user.equals(this.usuario)&&(contrasena.equals(this.pswd))) {
-		verify(controladorMock, times(1)).navegarPanelGeneros();
-		}
 	}
 	
 	

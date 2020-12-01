@@ -36,4 +36,19 @@ public class ControladorPanelGeneros {
 		return new PanelGeneros(controladorGeneros);
 	}
 
+	public Modelo getModelo() {
+		return modelo;
+	}
+
+	public Vista getVista() {
+		return vista;
+	}
+
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+
+	
+
 }

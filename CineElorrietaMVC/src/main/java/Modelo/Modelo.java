@@ -68,11 +68,13 @@ public class Modelo {
 	 * Metodo que para la ejecuccion por el tiempo deseado
 	 * @param tiempo tiempo que queremos que este detenido en milisegundos (3000->3s)
 	 */
-	public void esperar(int tiempo) {
+	public boolean esperar(int tiempo) {
 		try {
 			Thread.sleep(tiempo);
+			return true;
 		} catch (InterruptedException e) {
 			escribirErrorEnLog(e.toString());
+			return false;
 			
 		}
 	}

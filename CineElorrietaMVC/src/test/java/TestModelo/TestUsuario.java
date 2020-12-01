@@ -17,16 +17,16 @@ public class TestUsuario {
 
 	@Test
 	public void testUsuario() {
-		assertEquals(user.getNombre(),"usuario");
-		assertEquals(user.getPswd(),"12345");
+		assertEquals("usuario",user.getNombre());
+		assertEquals("12345",user.getPswd());
 	}
 	@Test
-	public void setNombre() {
+	public void testSetNombre() {
 		user.setNombre("usuario");
 		assertEquals(user.getNombre(),"usuario");
 	}
 	@Test
-	public void sePswd() {
+	public void testSetPswd() {
 		user.setPswd("12345");
 		assertEquals(user.getPswd(),"12345");
 	}

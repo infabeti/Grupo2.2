@@ -18,9 +18,10 @@ public class TestPelicula {
 
 	@Test
 	public void testPeli() {
-		assertEquals(peli.getGenero(),1);
-		assertEquals(peli.getTitulo(),"Handia");
-		assertEquals(peli.getDuracion(),114,0);
+		assertEquals(1,peli.getGenero());
+		assertEquals("Handia",peli.getTitulo());
+		assertEquals(114,0,peli.getDuracion());
+
 		
 	}
 	@Test

@@ -41,4 +41,18 @@ public class ControladorPanelBienvenida {
 	public PanelBienvenida makePanelBienv(ControladorPanelBienvenida controladorBienvenida) {
 		return new PanelBienvenida(controladorBienvenida);
 	}
+
+	public Modelo getModelo() {
+		return modelo;
+	}
+
+	public Vista getVista() {
+		return vista;
+	}
+
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+
 }

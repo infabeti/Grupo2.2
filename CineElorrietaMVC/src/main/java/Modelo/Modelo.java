@@ -17,15 +17,26 @@ import Controlador.Controlador;
 public class Modelo {
 
 	//Estos dos arrays tendran almacenadas las peliculas que selecciona el usuario
-	private static ArrayList<Pelicula> peliculasSabado=new ArrayList <Pelicula>();
-	private static ArrayList<Pelicula> peliculasDomingo=new ArrayList <Pelicula>();
-	public static ArrayList<Pelicula> getPeliculasSabado() {
+	private ArrayList<Pelicula> peliculasSabado;
+	private ArrayList<Pelicula> peliculasDomingo;
+	
+	public Modelo() {
+		this.peliculasSabado=new ArrayList <Pelicula>();
+		this.peliculasDomingo=new ArrayList <Pelicula>();
+		
+		
+	}
+	
+	
+	public  ArrayList<Pelicula> getPeliculasSabado() {
 		return peliculasSabado;
 	}
+	
+	
 
 	
 
-	public static ArrayList<Pelicula> getPeliculasDomingo() {
+	public ArrayList<Pelicula> getPeliculasDomingo() {
 		return peliculasDomingo;
 	}
 
@@ -48,9 +59,8 @@ public class Modelo {
 			br.close(); 		//cerramos el buffer
 		
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Ha ocurrido un error al escribir en el fichero de errores");
-			e.printStackTrace();
+			System.out.println(e.toString()+"->Ha ocurrido un error al escribir en el fichero de errores");
+			
 		}	 
 	}
 	
@@ -62,9 +72,8 @@ public class Modelo {
 		try {
 			Thread.sleep(tiempo);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			escribirErrorEnLog(e.toString());
-			e.printStackTrace();
+			
 		}
 	}
 	
@@ -104,11 +113,7 @@ public class Modelo {
 			
 			for(int i=0;i<peliculas.length;i++) {
 				titulo=peliculas[i].getTitulo();
-				//System.out.println(titulo+"  "+(String)lista_pelis.getSelectedValue());
-				
-				
-			
-				
+
 				
 				if(titulo.toString().trim().equals(lista_pelis.getSelectedValue().toString().trim())) {
 					

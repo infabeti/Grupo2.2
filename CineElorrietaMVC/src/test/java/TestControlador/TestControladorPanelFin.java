@@ -28,7 +28,13 @@ public class TestControladorPanelFin {
 	private PanelFin panelFinMock = mock(PanelFin.class);
 	private ControladorPanelFin spyControladorFin = spy(new ControladorPanelFin(modeloMock, vistaMock, controladorMock)); 
 
-
+	@Test
+	public void testContructorControladorFin() {
+		assertEquals(modeloMock.getClass(), controladorFin.getModelo().getClass());
+		assertEquals(vistaMock.getClass(), controladorFin.getVista().getClass());
+		assertEquals(controladorMock.getClass(), controladorFin.getControlador().getClass());
+		
+	}
 
 	@Test
 	public void mostrarPanelFinTest() {
@@ -53,14 +59,7 @@ public class TestControladorPanelFin {
 		//spyControladorFin.mostrarPanelFin();
 		
 		controladorFin=new ControladorPanelFin(modeloMock, vistaMock, controladorMock);
-		//controladorFin.mostrarPanelFin();
-		
-		//Thread.currentThread().interrupt();
-		
 	
-	
-		//assertThrows(InterruptedException.class, ()->controladorFin.mostrarPanelFin());
-		
 	}
 	
 	

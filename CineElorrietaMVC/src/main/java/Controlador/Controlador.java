@@ -93,5 +93,16 @@ public class Controlador {
 	public static void setPeliculas(Pelicula[] peliculas) {
 		Controlador.peliculas = peliculas;
 	}
+	public Modelo getModelo() {
+		return modelo;
+	}
+
+	public Vista getVista() {
+		return vista;
+	}
+
+	
+	
+	
 	
 }

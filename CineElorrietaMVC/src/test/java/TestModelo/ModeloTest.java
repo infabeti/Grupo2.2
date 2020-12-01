@@ -7,29 +7,53 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+import Controlador.Controlador;
 import Controlador.ControladorPanelPeliculas;
 import Modelo.Modelo;
 import Modelo.Pelicula;
+import Vista.Vista;
 
 public class ModeloTest {
-	private Modelo modelo;
-	private Modelo modeloMock = mock(Modelo.class);
+	private Modelo modelo=new Modelo();
 	private int resultadoEsperado,resultado;
+	private JList listamock=mock(JList.class);
+	private Controlador controladormock=mock(Controlador.class);
 	
+	private ArrayList<Pelicula> resultadoPeliculasSab;
+	private ArrayList<Pelicula> resultadoPeliculasDom;
+	
+	
+	/**
+	 * 
+	 */
 	@Test
-	public void testModelo() {
-		modelo=new Modelo();
+	public void testConstructorModelo() {
+		resultadoPeliculasDom=modelo.getPeliculasDomingo();
+		resultadoPeliculasSab=modelo.getPeliculasSabado();
+		
+		
+		assertEquals(0, resultadoPeliculasDom.size());
+		assertEquals(0, resultadoPeliculasSab.size());
+		
+		//assertEquals(Pelicula.class,resultadoPeliculasDom.);
+		
+		
 	}
 	 @Rule
 	    public TemporaryFolder folder = new TemporaryFolder();
 	 @Test
 	public void escribirErrorEnLogTest() throws IOException {
 		 File file=folder.newFile("errores.txt");
-		 modeloMock.escribirErrorEnLog("Test Error");
+		 modelo.escribirErrorEnLog("Test Error");
+		 
+		 
 		 
 	 
 		 
@@ -37,12 +61,14 @@ public class ModeloTest {
 		 
 	 }
 	 @Test
-		public void esperarTest() {
+		public void esperarTestCorrecto() {
+
+			 modelo.esperar(3000);
 			
-			 modeloMock.esperar(3000);
 			 	 
 			 
 		 }
+	
 		 
 	 
 	 
@@ -112,6 +138,30 @@ public class ModeloTest {
 			ArrayList<Pelicula> resultado = modelo.getPeliculasDomingo();
 		    assertEquals(resultadoEsperado, resultado);
 		}
+	 	
+	 	@Test
+	 	public void introducirPeliculaSeleccionadaVaciaTest() {
+	 		modelo.introducirPeliculaSeleccionada(listamock, controladormock);
+	 		assertEquals(0,modelo.getPeliculasSabado().size());
+	 		
+	 		
+	 		
+	 	}
+	 	@Test
+	 	public void introducirPeliculaSeleccionadaRellenaTest() {
+	 		DefaultListModel listModel = new DefaultListModel();
+	 		listModel.addElement("PeliculaTest");
+	 		listamock.setModel(listModel);
+	 		listamock.setSelectedIndex(0);
+	 	
+	 		System.out.println(listamock.getComponent(1));
+	 		
+	 		
+	 		modelo.introducirPeliculaSeleccionada(listamock, controladormock);
+	 		
+
+	 	}
+
 	 
 
 }

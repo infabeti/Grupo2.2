@@ -20,15 +20,24 @@ import Vista.Vista;
 
 public class TestControladorPanelBienvenida {
 
-	private ControladorPanelBienvenida controladorBienve;
+	
 	private Modelo modeloMock = mock(Modelo.class);
 	private Vista vistaMock = mock(Vista.class);
 	private Controlador controladorMock = mock(Controlador.class);
+	private ControladorPanelBienvenida controladorBienve=new ControladorPanelBienvenida(modeloMock, vistaMock, controladorMock);
 	private PanelBienvenida panelBienvMock = mock(PanelBienvenida.class);
 	private ControladorPanelBienvenida spyControladorGeneros = spy(new ControladorPanelBienvenida(modeloMock, vistaMock, controladorMock)); 
+	
+	@Test
+	public void testContructorControladorBienve() {
+		assertEquals(modeloMock.getClass(), controladorBienve.getModelo().getClass());
+		assertEquals(vistaMock.getClass(), controladorBienve.getVista().getClass());
+		assertEquals(controladorMock.getClass(), controladorBienve.getControlador().getClass());
+		
+	}
 
 	@Test
-	public void mostrarPanelBienvenida() {
+	public void testMostrarPanelBienvenida() {
 		doReturn(panelBienvMock)
 	    	.when(spyControladorGeneros)
 	    	.makePanelBienv(any( ControladorPanelBienvenida.class)); 
@@ -37,7 +46,7 @@ public class TestControladorPanelBienvenida {
 		verify(vistaMock, times(1)).mostrarPanel(panelBienvMock);
 	}
 	@Test
-	public void accionadoBottonMostrarPanelGeneros() {
+	public void testAccionadoBottonMostrarPanelGeneros() {
 		controladorBienve = new ControladorPanelBienvenida(modeloMock,
 				vistaMock, controladorMock);
 		

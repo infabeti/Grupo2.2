@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.awt.Dialog;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -7,7 +8,9 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Timer;
 
+import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -99,25 +102,16 @@ public class Modelo {
 	 * @param lista_pelis
 	 */
 	
-	public void introducirPeliculaSeleccionada(JList lista_pelis, Controlador controlador){
-		Pelicula[] peliculas=controlador.getPeliculas();
-		//JList lista_pelis=PanelPeliculas.getLista_pelis();
-		//System.out.println((String)lista_pelis.getSelectedValue());
+	public void introducirPeliculaSeleccionada(String peliSeleccionada, Controlador controlador,Pelicula[] peliculas){
 		
-	
-		if(lista_pelis.getSelectedValue()==null) {
-			
-			System.out.println("No has seleccionado ninguna pelicula");
-			
-		}
-		else {
+		
 			String titulo;
 			
 			for(int i=0;i<peliculas.length;i++) {
 				titulo=peliculas[i].getTitulo();
 
 				
-				if(titulo.toString().trim().equals(lista_pelis.getSelectedValue().toString().trim())) {
+				if(titulo.toString().trim().equals(peliSeleccionada.trim())) {
 					
 					
 					//Para que se pueda añadir una pelicula tiene que sumar menos de 8horas el sabado completo (480minutos)
@@ -137,7 +131,20 @@ public class Modelo {
 						
 					}
 					else {
-						JOptionPane.showMessageDialog(null, "No se puede introducir la pelicula, porque no hay tiempo");
+						JOptionPane pane = new JOptionPane("No se puede introducir la pelicula, porque no hay tiempo \n"
+								+ "(Esta ventana se cerrará automáticamente en 10 segundos)", JOptionPane.INFORMATION_MESSAGE);
+						JDialog dialog = pane.createDialog("Sin tiempo disponible");
+					    dialog.addWindowListener(null);
+					    dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					    dialog.setModalityType(Dialog.ModalityType.MODELESS);
+					    dialog.setVisible(true); 
+					    esperar(10000);
+				           
+				                dialog.setVisible(false);
+				                dialog.dispose();
+ 
+					    
+						//JOptionPane.showMessageDialog(null, "No se puede introducir la pelicula, porque no hay tiempo");
 						controlador.navegarPanelResumen();
 					}
 					
@@ -146,7 +153,7 @@ public class Modelo {
 				
 			}
 			
-		}
+		
 	}
 	/**
 	 * Metodo para escribir en el panel de Resumen el texto con la lista de peliculas

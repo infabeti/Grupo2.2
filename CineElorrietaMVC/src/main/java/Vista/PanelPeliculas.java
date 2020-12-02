@@ -28,14 +28,6 @@ public class PanelPeliculas extends JPanel {
 	public PanelPeliculas(ControladorPanelPeliculas controladorPanelPeliculas) {
 		setLayout(null);
 		
-		btnAnadirPelicula = new JButton("A\u00F1adir Pelicula");
-		btnAnadirPelicula.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controladorPanelPeliculas.accionadoBotonAnadirPanelPeliculas(lista_pelis);
-			}
-		});
-		btnAnadirPelicula.setBounds(47, 314, 168, 23);
-		add(btnAnadirPelicula);
 		
 		lblGenero = new JLabel("Genero Seleccionado:");
 		lblGenero.setBounds(37, 45, 141, 14);
@@ -84,8 +76,24 @@ public class PanelPeliculas extends JPanel {
 		});
 		btnVolver.setBounds(308, 314, 89, 23);
 		add(btnVolver);
+		
+		btnAnadirPelicula = new JButton("A\u00F1adir Pelicula");
+		btnAnadirPelicula.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(lista_pelis.getSelectedValue()==null) {
+					
+					System.out.println("No has seleccionado ninguna pelicula");
+					
+				}
+				else controladorPanelPeliculas.accionadoBotonAnadirPanelPeliculas(lista_pelis.getSelectedValue().toString());
+			}
+		});
+		btnAnadirPelicula.setBounds(47, 314, 168, 23);
+		add(btnAnadirPelicula);
 
 	}
+	
+	
 
 	public static JList getLista_pelis() {
 		return lista_pelis;

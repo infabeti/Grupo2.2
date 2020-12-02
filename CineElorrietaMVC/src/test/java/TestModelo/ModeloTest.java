@@ -23,7 +23,7 @@ import Vista.Vista;
 public class ModeloTest {
 	private Modelo modelo=new Modelo();
 	private int resultadoEsperado,resultado;
-	private JList listamock=mock(JList.class);
+	//private JList listamock=mock(JList.class);
 	private Controlador controladormock=mock(Controlador.class);
 	
 	private ArrayList<Pelicula> resultadoPeliculasSab;
@@ -42,7 +42,10 @@ public class ModeloTest {
 		assertEquals(0, resultadoPeliculasDom.size());
 		assertEquals(0, resultadoPeliculasSab.size());
 		
-		//assertEquals(Pelicula.class,resultadoPeliculasDom.);
+		
+		
+		assertEquals(ArrayList.class,resultadoPeliculasDom.getClass());
+		assertEquals(ArrayList.class,resultadoPeliculasSab.getClass());
 		
 		
 	}
@@ -171,25 +174,24 @@ public class ModeloTest {
 		    assertEquals(resultadoEsperado, resultado);
 		}
 	 	
+
 	 	@Test
-	 	public void introducirPeliculaSeleccionadaVaciaTest() {
-	 		modelo.introducirPeliculaSeleccionada(listamock, controladormock);
-	 		assertEquals(0,modelo.getPeliculasSabado().size());
+	 	public void introducirPeliculaSeleccionadaTest() {
+	 		
+	 		Pelicula peli1=new Pelicula(2, "Peli Test", 470);
+	 		Pelicula peli2=new Pelicula(2, "Peli Test 2", 350);
+	 		Pelicula peli3=new Pelicula(2, "Peli Test 3", 390);
+	 		Pelicula[] peliculas=new Pelicula[3];
+	 		peliculas[0]=peli1;
+	 		peliculas[1]=peli2;
+	 		peliculas[2]=peli3;
 	 		
 	 		
 	 		
-	 	}
-	 	@Test
-	 	public void introducirPeliculaSeleccionadaRellenaTest() {
-	 		DefaultListModel listModel = new DefaultListModel();
-	 		listModel.addElement("PeliculaTest");
-	 		listamock.setModel(listModel);
-	 		listamock.setSelectedIndex(0);
-	 	
-	 		System.out.println(listamock.getComponent(1));
 	 		
-	 		
-	 		modelo.introducirPeliculaSeleccionada(listamock, controladormock);
+	 		modelo.introducirPeliculaSeleccionada("Peli Test", controladormock,peliculas);
+	 		modelo.introducirPeliculaSeleccionada("Peli Test 2", controladormock,peliculas);
+	 		modelo.introducirPeliculaSeleccionada("Peli Test 3", controladormock,peliculas);
 	 		
 
 	 	}

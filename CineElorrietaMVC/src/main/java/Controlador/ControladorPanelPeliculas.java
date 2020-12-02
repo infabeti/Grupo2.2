@@ -43,8 +43,8 @@ public class ControladorPanelPeliculas {
 	}
 
 	
-	public void accionadoBotonAnadirPanelPeliculas(JList lista_pelis) {
-		modelo.introducirPeliculaSeleccionada(lista_pelis, controlador);
+	public void accionadoBotonAnadirPanelPeliculas(String peliSeleccionada) {
+		modelo.introducirPeliculaSeleccionada(peliSeleccionada,controlador,controlador.getPeliculas());
 	}
 
 	
@@ -63,6 +63,11 @@ public class ControladorPanelPeliculas {
 	public Controlador getControlador() {
 		return controlador;
 	}
+
+
+
+	
+	
 
 
 	

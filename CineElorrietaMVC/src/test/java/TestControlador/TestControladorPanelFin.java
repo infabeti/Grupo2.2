@@ -45,6 +45,7 @@ public class TestControladorPanelFin {
 		
 		//spyControladorFin.mostrarPanelFin();
 		//verify(vistaMock, times(1)).mostrarPanel(panelFinMock);
+		
 	}
 	
 

@@ -29,10 +29,11 @@ public class ControladorPanelPeliculas {
 		this.controlador = controlador;	
 	}
 	
-	public void mostrarPanelPeliculas(int genero) {
-		this.panelPeliculas = new PanelPeliculas(this);
+	public void mostrarPanelPeliculas(String genero) {
+		
+		this.panelPeliculas = new PanelPeliculas(this,genero);
 		this.vista.mostrarPanel(this.panelPeliculas);
-		System.out.println("Este es el genero seleccionado: "+genero);
+
 	
 		
 	}
@@ -48,8 +49,8 @@ public class ControladorPanelPeliculas {
 	}
 
 	
-	public PanelPeliculas makePanelPeliculas(ControladorPanelPeliculas controladorPeliculas) {
-		return new PanelPeliculas(controladorPeliculas);
+	public PanelPeliculas makePanelPeliculas(ControladorPanelPeliculas controladorPeliculas,String genero) {
+		return new PanelPeliculas(controladorPeliculas,genero);
 	}
 
 	public Modelo getModelo() {

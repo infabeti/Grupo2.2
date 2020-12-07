@@ -50,7 +50,7 @@ public class TestControladorPanelPeliculas {
 	public void mostrarPanelPeliculasTest() {
 		doReturn(panelPeliculasMock)
 	    	.when(spyControladorPeliculas)
-	    	.makePanelPeliculas(any( ControladorPanelPeliculas.class)); 
+	    	.makePanelPeliculas(any( ControladorPanelPeliculas.class),""); 
 		
 		//spyControladorPeliculas.mostrarPanelPeliculas(2);
 		//verify(vistaMock, times(1)).mostrarPanel(panelPeliculasMock);

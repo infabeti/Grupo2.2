@@ -25,7 +25,7 @@ public class PanelPeliculas extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelPeliculas(ControladorPanelPeliculas controladorPanelPeliculas) {
+	public PanelPeliculas(ControladorPanelPeliculas controladorPanelPeliculas, String seleccion) {
 		setLayout(null);
 		
 		
@@ -44,29 +44,10 @@ public class PanelPeliculas extends JPanel {
 		txtGenero = new JPanel();
 		txtGenero.setBounds(221, 45, 156, 23);
 		add(txtGenero);
-		modelo = new DefaultListModel();
 		
-		Pelicula[] peliculas=controladorPanelPeliculas.getControlador().getModelo().getPeliculas();
-		 
-		 int genero=Integer.parseInt(PanelGeneros.getSeleccion());
 		
-		 
-		 
-		 
-		modelo.clear();
-		for (int i = 0; i < peliculas.length; i++) {
-			if (peliculas[i].getGenero() == genero) {
-				String resultado = "";
-				System.out.println(peliculas[i].getTitulo());
-				resultado += peliculas[i].getTitulo() + "\n";
-				modelo.addElement(resultado);
-				
-				
-			}
-		}
-		
-		 
-		lista_pelis.setModel(modelo);
+		System.out.println("seleccion>> "+seleccion);
+		lista_pelis.setModel(controladorPanelPeliculas.getModelo().listaPorGenero(seleccion));
 		
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {
@@ -94,6 +75,7 @@ public class PanelPeliculas extends JPanel {
 	}
 	
 	
+
 
 	public static JList getLista_pelis() {
 		return lista_pelis;

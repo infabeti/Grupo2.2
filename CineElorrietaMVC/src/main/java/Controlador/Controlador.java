@@ -42,8 +42,8 @@ public class Controlador {
 		this.controladorPanelGeneros.mostrarPanelGeneros();
 	}
 	
-	public void navegarPanelPeliculas(int genero) {
-		System.out.println("Navegar panel peliculas");
+	public void navegarPanelPeliculas(String genero) {
+		System.out.println("Navegar panel peliculas Genero: "+genero);
 		this.controladorPanelPeliculas.mostrarPanelPeliculas(genero);
 		
 	}

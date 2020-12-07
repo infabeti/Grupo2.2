@@ -31,13 +31,15 @@ public class PanelGeneros extends JPanel {
 	private JLabel lblGeneros;
 	private ControladorPanelGeneros controladorPanelGeneros;
 	private JTextField txt_seleccion;
-	String resultado="";
-	static String seleccion;
+	private String resultado="";
+	private String seleccion;
+	private JList lista_pelis;
+	JButton btnAnadir;
+	
 	
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros) {
 
-		// ARRAYLIST PARA PARA PELIS SELECCIONADAS
-		ArrayList <Pelicula> pelis_seleccion = new ArrayList<>();
+		
 
 		this.controladorPanelGeneros = controladorPanelGeneros;
 
@@ -70,16 +72,16 @@ public class PanelGeneros extends JPanel {
 		scrollPane.setBounds(271, 63, 168, 137);
 		add(scrollPane);
 		
-		JList lista_pelis = new JList();
+		lista_pelis = new JList();
 		scrollPane.setViewportView(lista_pelis);
 		
-		//DefaultListModel modeloLista = new DefaultListModel();//necesario crear un modelo con el que llenar el jlist
-		JButton btnAnadir = new JButton("Seleccionar");
+		
+		btnAnadir = new JButton("Seleccionar");
 		btnAnadir.setEnabled(false);
 		
 		btnAnadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorPanelGeneros.accionadoBotonSeleccionarPanelGeneros(Integer.parseInt(seleccion));
+				controladorPanelGeneros.accionadoBotonSeleccionarPanelGeneros(seleccion);
 				
 				
 			}
@@ -91,17 +93,8 @@ public class PanelGeneros extends JPanel {
 		
 
 			public void actionPerformed(ActionEvent arg0) {
-				
-				if(controladorPanelGeneros.getModelo().comprobarGenero(txt_seleccion.getText())) {
-					lista_pelis.setModel(controladorPanelGeneros.getModelo().listaPorGenero(txt_seleccion.getText()));
+				controladorPanelGeneros.accionadoBottonAceptarPanelGeneros();
 					
-					txt_seleccion.setText("");
-					btnAnadir.setEnabled(true);
-				
-				}
-				
-			
-				
 			}
 		});
 
@@ -125,6 +118,8 @@ public class PanelGeneros extends JPanel {
 
 	}
 
+	
+
 	private void initializeEvents() {
 		this.btnVolver.addActionListener(listenerBotonVolver(this.controladorPanelGeneros));
 	}
@@ -137,16 +132,35 @@ public class PanelGeneros extends JPanel {
 			}
 		};
 	}
+	public void habilitarBtnAnadir() {
+		btnAnadir.setEnabled(true);
+		
+	}
+	public void vaciarTxtSeleccion() {
+		txt_seleccion.setText("");
+	}
+	public void agregarModeloLista(DefaultListModel modeloLista) {
+		lista_pelis.setModel(modeloLista);
+		
+	}
 
 
-	public static String getSeleccion() {
+	public JTextField getTxt_seleccion() {
+		return txt_seleccion;
+	}
+
+
+
+	public String getSeleccion() {
 		return seleccion;
 	}
 
-	public static void setSeleccion(String seleccion) {
-		PanelGeneros.seleccion = seleccion;
+	public void setSeleccion(String seleccion) {
+		this.seleccion = seleccion;
 	}
-	
+	public JList getLista_pelis() {
+		return lista_pelis;
+	}
 
 	
 	

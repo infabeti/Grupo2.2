@@ -28,7 +28,17 @@ public class ControladorPanelGeneros {
 	public void accionadoBottonVolverPanelGeneros() {
 		this.controlador.navegarPanelBienvenida();
 	}
-	public void accionadoBotonSeleccionarPanelGeneros(int genero) {
+	public void accionadoBottonAceptarPanelGeneros() {
+		if(modelo.comprobarGenero(panelGeneros.getTxt_seleccion().getText())) {
+			panelGeneros.agregarModeloLista(modelo.listaPorGenero(panelGeneros.getTxt_seleccion().getText()));
+			
+			panelGeneros.setSeleccion(panelGeneros.getTxt_seleccion().getText());
+			panelGeneros.vaciarTxtSeleccion();
+			panelGeneros.habilitarBtnAnadir();
+		
+		}
+	}
+	public void accionadoBotonSeleccionarPanelGeneros(String genero) {
 
 		this.controlador.navegarPanelPeliculas(genero);
 	}

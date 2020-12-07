@@ -215,6 +215,11 @@ public class Modelo {
 			
 		
 	}
+	/**
+	 * Comprueba que un número esté entre el 1 y el 4
+	 * @param genero genero seleccionado
+	 * @return devuelve true si el número está entre el 1 y el 4, si no false
+	 */
 	public boolean comprobarGenero(String genero) {
 		if ((!genero.equals("4")&&(!genero.equals("3"))&&(!genero.equals("2"))&&(!genero.equals("1")))) {
 			JOptionPane.showMessageDialog(null, "Seleccion incorrecta");
@@ -223,16 +228,22 @@ public class Modelo {
 		else return true;
 		
 	}
+	/**
+	 * 
+	 * @param genero genero del que queramos sacar las peliculas
+	 * @return un DefaultListModel con un alista de las peliculas seleccionadas
+	 */
 	public DefaultListModel listaPorGenero(String genero) {
 		DefaultListModel modelo=new DefaultListModel();
 		
 
-		//if (genero.equals("1")) {
-			modelo.clear();//vaciamos el jlist
+	
+			modelo.clear();
+		
 			for (int i = 0; i < peliculas.length; i++) {
+				
 				if (peliculas[i].getGenero() == Integer.parseInt(genero)) {
 					String resultado = "";
-					System.out.println(peliculas[i].getTitulo());
 					resultado += peliculas[i].getTitulo() + "\n";
 					modelo.addElement(resultado);
 					

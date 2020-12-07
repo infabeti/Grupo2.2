@@ -51,8 +51,9 @@ public class PanelResumen extends JPanel {
 
 	}
 
-	public static JTextArea getTxtResumen() {
-		return txtResumen;
+	public void anadirTextoResumen(String texto) {
+		txtResumen.append(texto);
+		
 	}
 
 

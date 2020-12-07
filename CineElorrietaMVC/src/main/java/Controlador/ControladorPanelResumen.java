@@ -26,7 +26,7 @@ public class ControladorPanelResumen {
 		
 		
 		
-		panelResumen.getTxtResumen().append(modelo.resumenEscrito());
+		panelResumen.anadirTextoResumen(modelo.resumenEscrito());
 		
 		
 	}

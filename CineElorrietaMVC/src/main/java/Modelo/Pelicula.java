@@ -8,9 +8,6 @@ public class Pelicula {
 	private String titulo;
 	private double duracion;
 
-	public Pelicula() {
-		super();
-	}
 
 	public Pelicula(int genero, String titulo, double duracion) {
 		super();

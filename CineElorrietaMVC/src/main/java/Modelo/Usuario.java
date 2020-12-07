@@ -5,9 +5,6 @@ public class Usuario {
 	private String nombre;
 	private String pswd;
 	
-	public Usuario() {
-		
-	}
 	
 
 	public Usuario(String nombre, String pswd) {

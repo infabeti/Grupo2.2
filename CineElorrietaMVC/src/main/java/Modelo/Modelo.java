@@ -23,6 +23,10 @@ public class Modelo {
 	private ArrayList<Pelicula> peliculasSabado;
 	private ArrayList<Pelicula> peliculasDomingo;
 	private Pelicula[] peliculas = new Pelicula[16];
+	private final String usuario="usuario";
+	private final String contrasena="12345";
+	
+	private Usuario usuarioAcceso=new Usuario(usuario,contrasena);
 	
 	public Modelo() {
 		this.peliculasSabado=new ArrayList <Pelicula>();
@@ -100,6 +104,26 @@ public class Modelo {
 			System.out.println(e.toString()+"->Ha ocurrido un error al escribir en el fichero de errores");
 			
 		}	 
+	}
+	public boolean comprobarUsuario(String usuarioIntroduccido, String passIntroducido) {
+		System.out.println("Comprobando usuario");
+		//System.out.println(usuario2);
+		//System.out.println(pass);
+		boolean correcto=false;
+		
+		if(usuarioIntroduccido.equals(usuarioAcceso.getNombre()) && passIntroducido.equals(usuarioAcceso.getPswd())) {		
+			System.out.println("Usuario/Contraseña correctos");
+			correcto=true;
+			
+		}
+		else {
+			System.out.println("Usuario/contraseña incorrectos");
+			correcto=false;
+			
+		}
+		
+		return correcto;
+		
 	}
 	
 	/**

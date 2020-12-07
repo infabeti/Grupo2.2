@@ -12,7 +12,7 @@ public class TestPelicula {
 	private String titulo= "Handia";
 	private double duracion=114;
 	
-	private Pelicula peli_vacia=new Pelicula();
+
 	private Pelicula peli=new Pelicula( genero, titulo,  duracion);
 	
 

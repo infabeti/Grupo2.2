@@ -73,7 +73,7 @@ public class PanelGeneros extends JPanel {
 		JList lista_pelis = new JList();
 		scrollPane.setViewportView(lista_pelis);
 		
-		DefaultListModel modelo = new DefaultListModel();//necesario crear un modelo con el que llenar el jlist
+		//DefaultListModel modeloLista = new DefaultListModel();//necesario crear un modelo con el que llenar el jlist
 		JButton btnAnadir = new JButton("Seleccionar");
 		btnAnadir.setEnabled(false);
 		
@@ -91,81 +91,17 @@ public class PanelGeneros extends JPanel {
 		
 
 			public void actionPerformed(ActionEvent arg0) {
-				Pelicula[] peliculas=controladorPanelGeneros.getControlador().getModelo().getPeliculas();
 				
-				seleccion = txt_seleccion.getText();// recogemos el dato de seleccion de genero
-
-				if (seleccion.equals("1")) {
-					modelo.clear();//vaciamos el jlist
-					for (int i = 0; i < peliculas.length; i++) {
-						if (peliculas[i].getGenero() == 1) {
-							String resultado = "";
-							System.out.println(peliculas[i].getTitulo());
-							resultado += peliculas[i].getTitulo() + "\n";
-							modelo.addElement(resultado);
-							txt_seleccion.setText("");
-							
-						}
-
-					}
-					btnAnadir.setEnabled(true);
-
-				}
-				if (seleccion.equals("2")) {
-					modelo.clear();
-					for (int i = 0; i < peliculas.length; i++) {
-						if (peliculas[i].getGenero() == 2) {
-							String resultado = "";
-							System.out.println(peliculas[i].getTitulo());
-							resultado += peliculas[i].getTitulo() + "\n";
-							modelo.addElement(resultado);
-							txt_seleccion.setText("");
-						
-							
-						
-						}
-
-					}
-					btnAnadir.setEnabled(true);
-				}
-				if (seleccion.equals("3")) {
-					modelo.clear();
-					for (int i = 0; i < peliculas.length; i++) {
-						if (peliculas[i].getGenero() == 3) {
-							String resultado = "";
-							System.out.println(peliculas[i].getTitulo());
-							resultado += peliculas[i].getTitulo() + "\n";
-							modelo.addElement(resultado);
-							txt_seleccion.setText("");
-							
-						}
-					}
-					btnAnadir.setEnabled(true);
-
-				}
-				if (seleccion.equals("4")) {
-					modelo.clear();
-					for (int i = 0; i < peliculas.length; i++) {
-						if (peliculas[i].getGenero() == 4) {
-							String resultado = "";
-							System.out.println(peliculas[i].getTitulo());
-							resultado += peliculas[i].getTitulo() + "\n";
-							modelo.addElement(resultado);
-							txt_seleccion.setText("");
-						}
-					}
-					btnAnadir.setEnabled(true);
-
-				}
-				
-				if ((!seleccion.equals("4")&&(!seleccion.equals("3"))&&(!seleccion.equals("2"))&&(!seleccion.equals("1"))))  {
-					JOptionPane.showMessageDialog(null, "Seleccion incorrecta");
-					txt_seleccion.setText("");
+				if(controladorPanelGeneros.getModelo().comprobarGenero(txt_seleccion.getText())) {
+					lista_pelis.setModel(controladorPanelGeneros.getModelo().listaPorGenero(txt_seleccion.getText()));
 					
+					txt_seleccion.setText("");
+					btnAnadir.setEnabled(true);
+				
 				}
 				
 			
-				lista_pelis.setModel(modelo);
+				
 			}
 		});
 

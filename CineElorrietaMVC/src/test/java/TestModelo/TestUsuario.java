@@ -11,7 +11,7 @@ public class TestUsuario {
 	private String nombre="usuario";
 	private String pswd="12345";
 	
-	private Usuario user_vacio= new Usuario();
+
 	private Usuario user= new Usuario(nombre,pswd);
 
 

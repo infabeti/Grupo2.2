@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Timer;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -214,6 +215,40 @@ public class Modelo {
 			
 		
 	}
+	public boolean comprobarGenero(String genero) {
+		if ((!genero.equals("4")&&(!genero.equals("3"))&&(!genero.equals("2"))&&(!genero.equals("1")))) {
+			JOptionPane.showMessageDialog(null, "Seleccion incorrecta");
+			return false;
+		}
+		else return true;
+		
+	}
+	public DefaultListModel listaPorGenero(String genero) {
+		DefaultListModel modelo=new DefaultListModel();
+		
+
+		//if (genero.equals("1")) {
+			modelo.clear();//vaciamos el jlist
+			for (int i = 0; i < peliculas.length; i++) {
+				if (peliculas[i].getGenero() == Integer.parseInt(genero)) {
+					String resultado = "";
+					System.out.println(peliculas[i].getTitulo());
+					resultado += peliculas[i].getTitulo() + "\n";
+					modelo.addElement(resultado);
+					
+				}
+			}
+
+		return modelo;
+
+
+		}
+
+		
+		
+		
+	
+	
 	/**
 	 * Metodo para escribir en el panel de Resumen el texto con la lista de peliculas
 	 * @return un string con saltos de linea incluidos del resumen

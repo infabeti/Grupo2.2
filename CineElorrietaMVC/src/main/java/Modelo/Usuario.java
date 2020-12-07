@@ -2,8 +2,8 @@ package Modelo;
 
 public class Usuario {
 
-	String nombre;
-	String pswd;
+	private String nombre;
+	private String pswd;
 	
 	public Usuario() {
 		

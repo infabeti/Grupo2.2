@@ -1,20 +1,18 @@
 package Vista;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import Controlador.Controlador;
+import Controlador.ControladorPanelBorrar;
 import Modelo.Pelicula;
 
-public class PanelBorrar extends JFrame {
+public class PanelBorrar extends JPanel {
    
 	private JLabel lblBorrar;
 	private static JList lista_pelis;
-	//private Pelicula[] peliculas=Controlador.getPeliculas();
 	
-    public PanelBorrar(){
+    public PanelBorrar(ControladorPanelBorrar controladorPanelBorrar){
         
     	setLayout(null);
     	
@@ -29,9 +27,8 @@ public class PanelBorrar extends JFrame {
 		JList lista_pelis = new JList();
 		scrollPane.setViewportView(lista_pelis);
 		
-		/*Controlador.introducirPrimerasPeliculas();
-		Controlador.getPeliculas();
-
+		Pelicula[] peliculas=controladorPanelBorrar.getControlador().getPeliculas();
+		
 		DefaultListModel modelo = new DefaultListModel();
 		for(int i=0;i<peliculas.length;i++) {
 			modelo.addElement(peliculas[i].getTitulo());
@@ -39,7 +36,7 @@ public class PanelBorrar extends JFrame {
 		}
 		
 		lista_pelis.setModel(modelo);
-		*/
+		
 		JButton btnBorrar = new JButton("Borrar");
 		btnBorrar.setBounds(125, 340, 88, 23);
 		btnBorrar.addActionListener(new ActionListener() {
@@ -55,18 +52,10 @@ public class PanelBorrar extends JFrame {
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(255, 340, 88, 23);
 		add(btnCancelar);
-    	
+		
     }
     
+
   
 
-      public static void main(String[] ar){
-       
-    	   PanelBorrar panelBorrar=new PanelBorrar();
-    	   panelBorrar.setBounds(500,500,500,500);
-    	   panelBorrar.setLocationRelativeTo(null);
-    	   panelBorrar.setVisible(true);
-    	   panelBorrar.setTitle("Borrar");
-
-      }
 }

@@ -1,45 +1,27 @@
 package Vista;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.ArrayList;
+import javax.swing.*;
+import java.awt.*;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import Controlador.Controlador;
-import Controlador.ControladorPanelGeneros;
+import Controlador.ControladorPanelEditar;
 import Modelo.Pelicula;
-
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JComboBox;
-import javax.swing.JTextPane;
-import javax.swing.JTabbedPane;
-import javax.swing.border.BevelBorder;
-import java.awt.Color;
-import javax.swing.JScrollPane;
-import java.awt.Font;
 
 @SuppressWarnings("serial")
 public class PanelEditar extends JPanel {
 
 	private JButton btnVolver;
-	private ControladorPanelGeneros controladorPanelGeneros;
+	private ControladorPanelEditar controladorPanelEditar;
 	String resultado="";
 	static String seleccion;
-	//private Pelicula[] peliculas=Controlador.getPeliculas();
-	public PanelEditar(ControladorPanelGeneros controladorPanelGeneros) {
+	public PanelEditar(ControladorPanelEditar controladorPanelEditar) {
 
 		// ARRAYLIST PARA PARA PELIS SELECCIONADAS
 		ArrayList <Pelicula> pelis_seleccion = new ArrayList<>();
 
-		this.controladorPanelGeneros = controladorPanelGeneros;
-
+		this.controladorPanelEditar = controladorPanelEditar;
+		
 		setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -47,23 +29,36 @@ public class PanelEditar extends JPanel {
 		add(scrollPane);
 		
 		JList lista_pelis = new JList();
+		scrollPane.setViewportView(lista_pelis);
 		lista_pelis.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		scrollPane.setViewportView(lista_pelis);
 		
+
+		
+		Pelicula[] peliculas=controladorPanelEditar.getControlador().getPeliculas();
 		DefaultListModel modelo = new DefaultListModel();//necesario crear un modelo con el que llenar el jlist
+		
+		for(int i=0;i<peliculas.length;i++) {
+			modelo.addElement(peliculas[i].getTitulo());
+			
+		}		
+		lista_pelis.setModel(modelo);
+		
+		
+		
 		JButton btnAnadir = new JButton("Seleccionar");
 		btnAnadir.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnAnadir.setEnabled(false);
 		
 		btnAnadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorPanelGeneros.accionadoBotonSeleccionarPanelGeneros(Integer.parseInt(seleccion));
+			//	controladorPanelEditar.accionadoBotonSeleccionarPanelEditar(Integer.parseInt(seleccion));
 				
 				
 			}
 		});
 	
-		JLabel lblPelis = new JLabel("Peliculas");
+		JLabel lblPelis = new JLabel("Pel\u00EDculas");
 		lblPelis.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblPelis.setBounds(214, 47, 72, 14);
 		add(lblPelis);
@@ -89,14 +84,14 @@ public class PanelEditar extends JPanel {
 	}
 
 	private void initializeEvents() {
-		this.btnVolver.addActionListener(listenerBotonVolver(this.controladorPanelGeneros));
+		this.btnVolver.addActionListener(listenerBotonVolver(this.controladorPanelEditar));
 	}
 
-	private ActionListener listenerBotonVolver(ControladorPanelGeneros controladorPanelGeneros) {
+	private ActionListener listenerBotonVolver(ControladorPanelEditar controladorPanelEditar) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Ejecutando evento Boton Volver");
-				controladorPanelGeneros.accionadoBottonVolverPanelGeneros();
+				//controladorPanelEditar.accionadoBottonVolverPanelEditar();
 			}
 		};
 	}

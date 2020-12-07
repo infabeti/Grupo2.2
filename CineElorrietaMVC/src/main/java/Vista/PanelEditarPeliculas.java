@@ -37,7 +37,7 @@ public class PanelEditarPeliculas extends JPanel {
 		btnConfirmarEdicion.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnConfirmarEdicion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorPanelPeliculas.accionadoBotonAnadirPanelPeliculas(lista_pelis);
+		//		controladorPanelPeliculas.accionadoBotonAnadirPanelPeliculas(lista_pelis);
 			}
 		});
 		btnConfirmarEdicion.setBounds(270, 387, 168, 23);
@@ -55,7 +55,7 @@ public class PanelEditarPeliculas extends JPanel {
 		modelo = new DefaultListModel();
 		
 		
-		 Pelicula[] peliculas=Controlador.getPeliculas();
+	//	 Pelicula[] peliculas=Controlador.getPeliculas();
 		 
 		 int genero=Integer.parseInt(PanelGeneros.getSeleccion());
 		
@@ -63,16 +63,16 @@ public class PanelEditarPeliculas extends JPanel {
 		 
 		 
 		modelo.clear();
-		for (int i = 0; i < peliculas.length; i++) {
-			if (peliculas[i].getGenero() == genero) {
-				String resultado = "";
-				System.out.println(peliculas[i].getTitulo());
-				resultado += peliculas[i].getTitulo() + "\n";
-				modelo.addElement(resultado);
-				
-				
-			}
-		}
+//		for (int i = 0; i < peliculas.length; i++) {
+//			if (peliculas[i].getGenero() == genero) {
+//				String resultado = "";
+//				System.out.println(peliculas[i].getTitulo());
+//				resultado += peliculas[i].getTitulo() + "\n";
+//				modelo.addElement(resultado);
+//				
+//				
+//			}
+//		}
 		
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -120,12 +120,12 @@ public class PanelEditarPeliculas extends JPanel {
 
 	}
 
-	public static JList getLista_pelis() {
-		return lista_pelis;
-	}
+//	public static JList getLista_pelis() {
+//		//return lista_pelis;
+//	}
 
 	public void setLista_pelis(JList lista_pelis) {
-		this.lista_pelis = lista_pelis;
+	//	this.lista_pelis = lista_pelis;
 	}
 
 	public JPanel getTxtGenero() {

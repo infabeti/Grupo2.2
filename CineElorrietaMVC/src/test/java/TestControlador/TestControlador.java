@@ -130,8 +130,8 @@ public class TestControlador {
 	  @Test 
 	  public void getPeliculasTest() {
 
-	  Pelicula[] resultadoEsperado = controlador.getPeliculas();
-	  assertEquals(controlador.getPeliculas(),resultadoEsperado); 
+	  Pelicula[] resultadoEsperado = controlador.getModelo().getPeliculas();
+	  assertEquals(controlador.getModelo().getPeliculas(),resultadoEsperado); 
 	  }
 	  
 	  

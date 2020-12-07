@@ -44,7 +44,7 @@ public class ControladorPanelPeliculas {
 
 	
 	public void accionadoBotonAnadirPanelPeliculas(String peliSeleccionada) {
-		modelo.introducirPeliculaSeleccionada(peliSeleccionada,controlador,controlador.getPeliculas());
+		modelo.introducirPeliculaSeleccionada(peliSeleccionada,controlador,controlador.getModelo().getPeliculas());
 	}
 
 	

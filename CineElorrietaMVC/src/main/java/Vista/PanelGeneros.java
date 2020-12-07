@@ -91,7 +91,7 @@ public class PanelGeneros extends JPanel {
 		
 
 			public void actionPerformed(ActionEvent arg0) {
-				Pelicula[] peliculas=controladorPanelGeneros.getControlador().getPeliculas();
+				Pelicula[] peliculas=controladorPanelGeneros.getControlador().getModelo().getPeliculas();
 				
 				seleccion = txt_seleccion.getText();// recogemos el dato de seleccion de genero
 

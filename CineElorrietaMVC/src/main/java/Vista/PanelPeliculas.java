@@ -46,7 +46,7 @@ public class PanelPeliculas extends JPanel {
 		add(txtGenero);
 		modelo = new DefaultListModel();
 		
-		Pelicula[] peliculas=controladorPanelPeliculas.getControlador().getPeliculas();
+		Pelicula[] peliculas=controladorPanelPeliculas.getControlador().getModelo().getPeliculas();
 		 
 		 int genero=Integer.parseInt(PanelGeneros.getSeleccion());
 		

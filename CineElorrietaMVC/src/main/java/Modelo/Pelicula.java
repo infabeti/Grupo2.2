@@ -4,9 +4,9 @@ import java.awt.Component;
 
 public class Pelicula {
 
-	int genero;
-	String titulo;
-	double duracion;
+	private int genero;
+	private String titulo;
+	private double duracion;
 
 	public Pelicula() {
 		super();

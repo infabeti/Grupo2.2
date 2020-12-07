@@ -59,9 +59,6 @@ public class Controlador {
 		
 		
 	}
-	public ControladorPanelGeneros makeControladorGeneros(Modelo modelo, Vista vista, Controlador controlador) {
-		return new ControladorPanelGeneros(this.modelo, this.vista, this);
-	}
 
 
 	public Modelo getModelo() {

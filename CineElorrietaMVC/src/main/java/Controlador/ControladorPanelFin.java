@@ -22,7 +22,7 @@ public class ControladorPanelFin {
 		this.panelFin = new PanelFin(this);
 		this.vista.mostrarPanel(this.panelFin);
 		
-		modelo.esperar(2000);
+		this.modelo.esperar(2000);
 
 		System.exit(0);
 	

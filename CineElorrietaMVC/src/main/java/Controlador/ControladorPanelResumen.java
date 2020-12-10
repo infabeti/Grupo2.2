@@ -26,20 +26,20 @@ public class ControladorPanelResumen {
 		
 		
 		
-		panelResumen.anadirTextoResumen(modelo.resumenEscrito());
+		this.panelResumen.anadirTextoResumen(modelo.resumenEscrito());
 		
 		
 	}
 	
 	public void accionadoBotonRechazarPanelResumen() {
-		controlador.navegarPanelGeneros();
-		modelo.getPeliculasSabado().removeAll(modelo.getPeliculasSabado());
-		modelo.getPeliculasDomingo().removeAll(modelo.getPeliculasDomingo());
+		this.controlador.navegarPanelGeneros();
+		this.modelo.getPeliculasSabado().removeAll(modelo.getPeliculasSabado());
+		this.modelo.getPeliculasDomingo().removeAll(modelo.getPeliculasDomingo());
 		
 	}
 	
 	public void accionadoBotonAceptarPanelResumen() {
-		controlador.navegarPanelFin();
+		this.controlador.navegarPanelFin();
 		
 		
 	}

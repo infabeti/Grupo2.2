@@ -26,7 +26,7 @@ public class ControladorPanelBienvenida {
 		
 		
 		
-		modelo.esperar(3000);
+		this.modelo.esperar(3000);
 		
 		
 		this.controlador.navegarPanelLogin();

@@ -176,25 +176,25 @@ public class ModeloTest {
 	 	
 
 	 	@Test
-	 	public void introducirPeliculaSeleccionadaTest() {
-	 		
-	 		Pelicula peli1=new Pelicula(2, "Peli Test", 470);
-	 		Pelicula peli2=new Pelicula(2, "Peli Test 2", 350);
-	 		Pelicula peli3=new Pelicula(2, "Peli Test 3", 390);
-	 		Pelicula[] peliculas=new Pelicula[3];
-	 		peliculas[0]=peli1;
-	 		peliculas[1]=peli2;
-	 		peliculas[2]=peli3;
-	 		
-	 		
-	 		
-	 		
-	 		modelo.introducirPeliculaSeleccionada("Peli Test", controladormock,peliculas);
-	 		modelo.introducirPeliculaSeleccionada("Peli Test 2", controladormock,peliculas);
-	 		modelo.introducirPeliculaSeleccionada("Peli Test 3", controladormock,peliculas);
-	 		
+        public void introducirPeliculaSeleccionadaTest() {
 
-	 	}
+            Pelicula peli1=new Pelicula(2, "Peli Test", 470);
+            Pelicula peli2=new Pelicula(2, "Peli Test 2", 350);
+            Pelicula peli3=new Pelicula(2, "Peli Test 3", 390);
+            Pelicula[] peliculas=new Pelicula[3];
+            peliculas[0]=peli1;
+            peliculas[1]=peli2;
+            peliculas[2]=peli3;
+
+
+
+
+            modelo.introducirPeliculaSeleccionada("Peli Test", controladormock);
+            modelo.introducirPeliculaSeleccionada("Peli Test 2", controladormock);
+            modelo.introducirPeliculaSeleccionada("Peli Test 3", controladormock);
+
+
+        }
 
 	 
 

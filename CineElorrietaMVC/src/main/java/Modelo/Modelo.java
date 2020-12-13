@@ -162,34 +162,34 @@ public class Modelo {
 	 * @param lista_pelis
 	 */
 	
-	public void introducirPeliculaSeleccionada(String peliSeleccionada, Controlador controlador,Pelicula[] peliculas){
-		
-		
-			String titulo;
-			
-			for(int i=0;i<peliculas.length;i++) {
-				titulo=peliculas[i].getTitulo();
+	public void introducirPeliculaSeleccionada(String peliSeleccionada, Controlador controlador){
 
-				
-				if(titulo.toString().trim().equals(peliSeleccionada.trim())) {
-					
-					
-					//Para que se pueda añadir una pelicula tiene que sumar menos de 8horas el sabado completo (480minutos)
-					if((peliculas[i].getDuracion()+minutosTotales(getPeliculasSabado()))<480){
-						getPeliculasSabado().add(peliculas[i]);
-						controlador.navegarPanelGeneros();
-						System.out.println("Peliculas Sabado-> "+getPeliculasSabado().size());
-						System.out.println("Minutos-> "+minutosTotales(getPeliculasSabado()));
-						
-						
-					}
-					else if((peliculas[i].getDuracion()+minutosTotales(getPeliculasDomingo()))<360){
-						getPeliculasDomingo().add(peliculas[i]);
-						controlador.navegarPanelGeneros();
-						System.out.println("Peliculas Domingo-> "+getPeliculasDomingo().size());
-						System.out.println("Minutos-> "+minutosTotales(getPeliculasDomingo()));
-						
-					}
+
+        String titulo;
+
+        for(int i=0;i<this.peliculas.length;i++) {
+            titulo=this.peliculas[i].getTitulo();
+
+
+            if(titulo.toString().trim().equals(peliSeleccionada.trim())) {
+
+
+                //Para que se pueda añadir una pelicula tiene que sumar menos de 8horas el sabado completo (480minutos)
+                if((this.peliculas[i].getDuracion()+minutosTotales(getPeliculasSabado()))<480){
+                    getPeliculasSabado().add(this.peliculas[i]);
+                    controlador.navegarPanelGeneros();
+                    System.out.println("Peliculas Sabado-> "+getPeliculasSabado().size());
+                    System.out.println("Minutos-> "+minutosTotales(getPeliculasSabado()));
+
+
+                }
+                else if((this.peliculas[i].getDuracion()+minutosTotales(getPeliculasDomingo()))<360){
+                    getPeliculasDomingo().add(this.peliculas[i]);
+                    controlador.navegarPanelGeneros();
+                    System.out.println("Peliculas Domingo-> "+getPeliculasDomingo().size());
+                    System.out.println("Minutos-> "+minutosTotales(getPeliculasDomingo()));
+
+                }
 					else {
 						JOptionPane pane = new JOptionPane("No se puede introducir la pelicula, porque no hay tiempo \n"
 								+ "(Esta ventana se cerrará automáticamente en 10 segundos)", JOptionPane.INFORMATION_MESSAGE);

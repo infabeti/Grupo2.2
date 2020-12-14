@@ -254,6 +254,17 @@ public class Modelo {
 
 
 		}
+	
+	public void limpiarDias() {
+		
+		if(peliculasSabado.size()!=0) {
+			getPeliculasSabado().removeAll(peliculasSabado);
+		}
+		
+		if(peliculasDomingo.size()!=0) {
+			getPeliculasDomingo().removeAll(peliculasDomingo);
+		}
+	}
 
 		
 		

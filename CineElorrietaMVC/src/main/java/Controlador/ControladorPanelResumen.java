@@ -33,8 +33,7 @@ public class ControladorPanelResumen {
 	
 	public void accionadoBotonRechazarPanelResumen() {
 		this.controlador.navegarPanelGeneros();
-		this.modelo.getPeliculasSabado().removeAll(modelo.getPeliculasSabado());
-		this.modelo.getPeliculasDomingo().removeAll(modelo.getPeliculasDomingo());
+		this.modelo.limpiarDias();
 		
 	}
 	

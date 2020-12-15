@@ -21,8 +21,8 @@ public class ControladorPanelFin {
 	public void mostrarPanelFin() {
 		this.panelFin = new PanelFin(this);
 		this.vista.mostrarPanel(this.panelFin);
-		
-		this.modelo.esperar(2000);
+
+		this.modelo.getModeloGeneral().esperar(2000);
 
 		System.exit(0);
 	

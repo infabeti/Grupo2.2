@@ -26,14 +26,14 @@ public class ControladorPanelResumen {
 		
 		
 		
-		this.panelResumen.anadirTextoResumen(modelo.resumenEscrito());
+		this.panelResumen.anadirTextoResumen(this.modelo.getModeloCartelera().resumenEscrito());
 		
 		
 	}
 	
 	public void accionadoBotonRechazarPanelResumen() {
 		this.controlador.navegarPanelGeneros();
-		this.modelo.limpiarDias();
+		this.modelo.getModeloCartelera().limpiarDias();
 		
 	}
 	

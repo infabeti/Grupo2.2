@@ -11,12 +11,7 @@ public class ControladorPanelLogin {
 	private Vista vista;
 	private Controlador controlador;
 	private PanelLogin panelLogin;
-	private final String usuario="usuario";
-	private final String contrasena="12345";
-	
-	
-	
-	
+
 	public ControladorPanelLogin(Modelo modelo, Vista vista, Controlador controlador) {
 		this.modelo = modelo;
 		this.vista = vista;
@@ -34,7 +29,7 @@ public class ControladorPanelLogin {
 	}
 
 	public boolean accionadoBotonEntrarPanelLogin(String usuario2, String pass) {
-		if(modelo.comprobarUsuario(usuario2, pass)) {
+		if(this.modelo.getModeloLogin().comprobarUsuario(usuario2, pass)) {
 			this.controlador.navegarPanelGeneros();
 			return true;
 		}

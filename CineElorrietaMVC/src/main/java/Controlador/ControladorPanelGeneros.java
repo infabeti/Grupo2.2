@@ -1,6 +1,10 @@
 package Controlador;
 
+import java.awt.Dialog;
+
 import javax.swing.DefaultListModel;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 import Modelo.Modelo;
 import Modelo.Pelicula;
@@ -28,14 +32,27 @@ public class ControladorPanelGeneros {
 	public void accionadoBottonVolverPanelGeneros() {
 		this.controlador.navegarPanelBienvenida();
 	}
-	public void accionadoBottonAceptarPanelGeneros(String seleccion) {
-		if(modelo.comprobarGenero(seleccion)) {
-			panelGeneros.agregarModeloLista(modelo.listaPorGenero(seleccion));
+	public void accionadoBotonAceptarPanelGeneros(String seleccion) {
+		if(this.modelo.getModeloGeneral().comprobarGenero(seleccion)) {
+			panelGeneros.agregarModeloLista(this.modelo.getModeloPeliculas().listaPorGenero(seleccion));
 			
 			panelGeneros.setSeleccion(seleccion);
 			panelGeneros.vaciarTxtSeleccion();
 			panelGeneros.habilitarBtnAnadir();
 		
+		}
+		else {
+			JOptionPane pane = new JOptionPane("Seleccion incorrecta", JOptionPane.INFORMATION_MESSAGE);
+			JDialog dialog = pane.createDialog("Sin tiempo disponible");
+		    dialog.addWindowListener(null);
+		    dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		    dialog.setModalityType(Dialog.ModalityType.MODELESS);
+		    dialog.setVisible(true); 
+		    this.modelo.getModeloGeneral().esperar(2000);
+	           
+	                dialog.setVisible(false);
+	                dialog.dispose();
+	                panelGeneros.vaciarTxtSeleccion();
 		}
 	}
 	public void accionadoBotonSeleccionarPanelGeneros(String genero) {

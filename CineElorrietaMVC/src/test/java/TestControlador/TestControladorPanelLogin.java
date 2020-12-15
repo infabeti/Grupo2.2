@@ -55,12 +55,17 @@ public class TestControladorPanelLogin {
 	
 	@Test
 	public void accionadoBotonEntrarPanelLoginTrue() {	
+		Modelo modelo=new Modelo();
+		controladorLogin=new ControladorPanelLogin(modelo, vistaMock, controladorMock);
+		
 		
 		assertEquals(true,controladorLogin.accionadoBotonEntrarPanelLogin("usuario", "12345"));
 		
 	}
 	@Test
 	public void accionadoBotonEntrarPanelLoginFalse() {	
+		Modelo modelo=new Modelo();
+		controladorLogin=new ControladorPanelLogin(modelo, vistaMock, controladorMock);
 		assertEquals(false,controladorLogin.accionadoBotonEntrarPanelLogin("usuariofalso", "12345"));
 
 	}

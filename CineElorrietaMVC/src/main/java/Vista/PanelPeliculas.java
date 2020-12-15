@@ -47,7 +47,7 @@ public class PanelPeliculas extends JPanel {
 		
 		
 		System.out.println("seleccion>> "+seleccion);
-		lista_pelis.setModel(controladorPanelPeliculas.getModelo().listaPorGenero(seleccion));
+		lista_pelis.setModel(controladorPanelPeliculas.getModelo().getModeloPeliculas().listaPorGenero(seleccion));
 		
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {

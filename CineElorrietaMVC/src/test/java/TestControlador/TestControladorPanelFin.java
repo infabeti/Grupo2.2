@@ -43,7 +43,13 @@ public class TestControladorPanelFin {
 	    	.when(spyControladorFin)
 	    	.makePanelFin(any( ControladorPanelFin.class)); 
 		
-		//spyControladorFin.mostrarPanelFin();
+		Modelo modelo= new Modelo();
+		
+		controladorFin=new ControladorPanelFin(modelo, vistaMock, controladorMock);
+		
+		
+		
+		//controladorFin.mostrarPanelFin();
 		//verify(vistaMock, times(1)).mostrarPanel(panelFinMock);
 		
 	}

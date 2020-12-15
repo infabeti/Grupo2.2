@@ -59,8 +59,9 @@ public class TestControladorPanelPeliculas {
 
 	//testeo del boton que nos lleva al panel de bienvenida
 	@Test
-	public void accionadoBottonVolverPanelProductosTest() {
-		controladorPeliculas = new ControladorPanelPeliculas(modeloMock,
+	public void accionadoBottonVolverPanelPeliculasTest() {
+		Modelo modelo=new Modelo();
+		controladorPeliculas = new ControladorPanelPeliculas(modelo,
 				vistaMock, controladorMock);
 		
 		controladorPeliculas.accionadoBotonVolverPanelPeliculas();

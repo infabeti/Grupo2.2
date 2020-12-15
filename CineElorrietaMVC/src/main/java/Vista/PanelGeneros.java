@@ -93,7 +93,7 @@ public class PanelGeneros extends JPanel {
 		
 
 			public void actionPerformed(ActionEvent arg0) {
-				controladorPanelGeneros.accionadoBottonAceptarPanelGeneros();
+				controladorPanelGeneros.accionadoBottonAceptarPanelGeneros(txt_seleccion.getText());
 					
 			}
 		});

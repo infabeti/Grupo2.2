@@ -28,11 +28,11 @@ public class ControladorPanelGeneros {
 	public void accionadoBottonVolverPanelGeneros() {
 		this.controlador.navegarPanelBienvenida();
 	}
-	public void accionadoBottonAceptarPanelGeneros() {
-		if(modelo.comprobarGenero(panelGeneros.getTxt_seleccion().getText())) {
-			panelGeneros.agregarModeloLista(modelo.listaPorGenero(panelGeneros.getTxt_seleccion().getText()));
+	public void accionadoBottonAceptarPanelGeneros(String seleccion) {
+		if(modelo.comprobarGenero(seleccion)) {
+			panelGeneros.agregarModeloLista(modelo.listaPorGenero(seleccion));
 			
-			panelGeneros.setSeleccion(panelGeneros.getTxt_seleccion().getText());
+			panelGeneros.setSeleccion(seleccion);
 			panelGeneros.vaciarTxtSeleccion();
 			panelGeneros.habilitarBtnAnadir();
 		

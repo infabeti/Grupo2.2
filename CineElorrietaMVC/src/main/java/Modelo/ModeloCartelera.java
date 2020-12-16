@@ -107,12 +107,12 @@ private ArrayList<Pelicula> peliculasDomingo;
 		String resultado="";
 		int horas,minutos;
 		
-		for(int i=0;i<getPeliculasSabado().size();i++) {
+		for(int i=0;i<dia.size();i++) {
 
 			horas=(int) Math.floor((dia.get(i).getDuracion())/60);
 			minutos=(int) Math.round((dia.get(i).getDuracion())%60);
 			
-			resultado=resultado+getPeliculasSabado().get(i).getTitulo()+"-> "+
+			resultado=resultado+dia.get(i).getTitulo()+"-> "+
 					horas+"h "+minutos+"m \n";
 				
 		}

@@ -64,6 +64,10 @@ public class ControladorPanelPeliculas {
 		return controlador;
 	}
 
+	public PanelPeliculas getPanelPeliculas() {
+		return panelPeliculas;
+	}
+
 
 
 	

@@ -18,10 +18,13 @@ import javax.swing.SwingConstants;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JTextPane;
 import javax.swing.JTabbedPane;
 import javax.swing.border.BevelBorder;
 import java.awt.Color;
+import java.awt.Dialog;
+
 import javax.swing.JScrollPane;
 
 @SuppressWarnings("serial")
@@ -142,6 +145,18 @@ public class PanelGeneros extends JPanel {
 	public void agregarModeloLista(DefaultListModel modeloLista) {
 		lista_pelis.setModel(modeloLista);
 		
+	}
+	public void mostrarSeleccionIncorrecta() {
+		JOptionPane pane = new JOptionPane("Seleccion incorrecta", JOptionPane.INFORMATION_MESSAGE);
+		JDialog dialog = pane.createDialog("Seleccionincorrecta");
+	    dialog.addWindowListener(null);
+	    dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	    dialog.setModalityType(Dialog.ModalityType.MODELESS);
+	    dialog.setVisible(true); 
+	    controladorPanelGeneros.getModelo().getModeloGeneral().esperar(2000);
+           
+                	dialog.setVisible(false);
+                dialog.dispose();
 	}
 
 

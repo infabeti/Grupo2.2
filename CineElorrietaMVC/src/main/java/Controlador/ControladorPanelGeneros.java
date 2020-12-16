@@ -2,9 +2,6 @@ package Controlador;
 
 import java.awt.Dialog;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 
 import Modelo.Modelo;
 import Modelo.Pelicula;
@@ -42,17 +39,8 @@ public class ControladorPanelGeneros {
 		
 		}
 		else {
-			JOptionPane pane = new JOptionPane("Seleccion incorrecta", JOptionPane.INFORMATION_MESSAGE);
-			JDialog dialog = pane.createDialog("Sin tiempo disponible");
-		    dialog.addWindowListener(null);
-		    dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		    dialog.setModalityType(Dialog.ModalityType.MODELESS);
-		    dialog.setVisible(true); 
-		    this.modelo.getModeloGeneral().esperar(2000);
-	           
-	                dialog.setVisible(false);
-	                dialog.dispose();
-	                panelGeneros.vaciarTxtSeleccion();
+			panelGeneros.mostrarSeleccionIncorrecta();
+	        panelGeneros.vaciarTxtSeleccion();
 		}
 	}
 	public void accionadoBotonSeleccionarPanelGeneros(String genero) {

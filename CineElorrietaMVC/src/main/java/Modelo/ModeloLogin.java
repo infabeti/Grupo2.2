@@ -20,8 +20,6 @@ private Usuario usuarioAcceso=new Usuario(usuario,contrasena);
 
 	public boolean comprobarUsuario(String usuarioIntroduccido, String passIntroducido) {
 		System.out.println("Comprobando usuario");
-		//System.out.println(usuario2);
-		//System.out.println(pass);
 		boolean correcto=false;
 		
 		if(usuarioIntroduccido.equals(usuarioAcceso.getNombre()) && passIntroducido.equals(usuarioAcceso.getPswd())) {		

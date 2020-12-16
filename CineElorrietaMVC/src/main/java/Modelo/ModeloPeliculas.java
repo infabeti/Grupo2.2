@@ -1,7 +1,7 @@
 package Modelo;
 
 import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
+
 
 public class ModeloPeliculas {
 private Modelo modelo;

@@ -59,6 +59,11 @@ public class Controlador {
 		
 		
 	}
+	
+
+	public ControladorPanelPeliculas getControladorPanelPeliculas() {
+		return controladorPanelPeliculas;
+	}
 
 
 	public Modelo getModelo() {

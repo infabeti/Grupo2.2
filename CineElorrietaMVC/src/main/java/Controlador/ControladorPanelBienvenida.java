@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.Modelo;
 import Vista.PanelBienvenida;
+import Vista.PanelGeneros;
 import Vista.Vista;
 
 public class ControladorPanelBienvenida {
@@ -12,6 +13,7 @@ public class ControladorPanelBienvenida {
 	private Controlador controlador;
 	private PanelBienvenida panelBienvenida;
 	
+	
 	public ControladorPanelBienvenida(Modelo modelo, Vista vista, Controlador controlador) {
 		this.modelo = modelo;
 		this.vista = vista;
@@ -21,9 +23,32 @@ public class ControladorPanelBienvenida {
 	public void mostrarPanelBienvenida() {
 		this.panelBienvenida = new PanelBienvenida(this);
 		this.vista.mostrarPanel(this.panelBienvenida);
+	
+		this.modelo.getModeloGeneral().esperar(3000);
+		this.controlador.navegarPanelLogin();
+		
+		
+		
 	}
 	
 	public void accionadoBottonMostrarPanelGeneros() {
 		this.controlador.navegarPanelGeneros();
 	}
+	public PanelBienvenida makePanelBienv(ControladorPanelBienvenida controladorBienvenida) {
+		return new PanelBienvenida(controladorBienvenida);
+	}
+
+	public Modelo getModelo() {
+		return modelo;
+	}
+
+	public Vista getVista() {
+		return vista;
+	}
+
+	public Controlador getControlador() {
+		return controlador;
+	}
+
+
 }

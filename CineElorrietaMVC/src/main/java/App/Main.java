@@ -16,6 +16,9 @@ public class Main {
 		vista = new Vista();
                 
 		controlador = new Controlador(modelo, vista);
+		
+
+		
 	}
 
 }

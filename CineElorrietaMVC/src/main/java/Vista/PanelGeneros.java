@@ -18,10 +18,13 @@ import javax.swing.SwingConstants;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JTextPane;
 import javax.swing.JTabbedPane;
 import javax.swing.border.BevelBorder;
 import java.awt.Color;
+import java.awt.Dialog;
+
 import javax.swing.JScrollPane;
 
 @SuppressWarnings("serial")
@@ -31,13 +34,15 @@ public class PanelGeneros extends JPanel {
 	private JLabel lblGeneros;
 	private ControladorPanelGeneros controladorPanelGeneros;
 	private JTextField txt_seleccion;
-	String resultado="";
-	static String seleccion;
+	private String resultado="";
+	private String seleccion;
+	private JList lista_pelis;
+	JButton btnAnadir;
+	
 	
 	public PanelGeneros(ControladorPanelGeneros controladorPanelGeneros) {
 
-		// ARRAYLIST PARA PARA PELIS SELECCIONADAS
-		ArrayList <Pelicula> pelis_seleccion = new ArrayList<>();
+		
 
 		this.controladorPanelGeneros = controladorPanelGeneros;
 
@@ -70,16 +75,16 @@ public class PanelGeneros extends JPanel {
 		scrollPane.setBounds(271, 63, 168, 137);
 		add(scrollPane);
 		
-		JList lista_pelis = new JList();
+		lista_pelis = new JList();
 		scrollPane.setViewportView(lista_pelis);
 		
-		DefaultListModel modelo = new DefaultListModel();//necesario crear un modelo con el que llenar el jlist
-		JButton btnAnadir = new JButton("Seleccionar");
+		
+		btnAnadir = new JButton("Seleccionar");
 		btnAnadir.setEnabled(false);
 		
 		btnAnadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorPanelGeneros.accionadoBotonSeleccionarPanelGeneros(Integer.parseInt(seleccion));
+				controladorPanelGeneros.accionadoBotonSeleccionarPanelGeneros(seleccion);
 				
 				
 			}
@@ -91,81 +96,8 @@ public class PanelGeneros extends JPanel {
 		
 
 			public void actionPerformed(ActionEvent arg0) {
-				Pelicula[] peliculas=controladorPanelGeneros.getControlador().getPeliculas();
-				
-				seleccion = txt_seleccion.getText();// recogemos el dato de seleccion de genero
-
-				if (seleccion.equals("1")) {
-					modelo.clear();//vaciamos el jlist
-					for (int i = 0; i < peliculas.length; i++) {
-						if (peliculas[i].getGenero() == 1) {
-							String resultado = "";
-							System.out.println(peliculas[i].getTitulo());
-							resultado += peliculas[i].getTitulo() + "\n";
-							modelo.addElement(resultado);
-							txt_seleccion.setText("");
-							
-						}
-
-					}
-					btnAnadir.setEnabled(true);
-
-				}
-				if (seleccion.equals("2")) {
-					modelo.clear();
-					for (int i = 0; i < peliculas.length; i++) {
-						if (peliculas[i].getGenero() == 2) {
-							String resultado = "";
-							System.out.println(peliculas[i].getTitulo());
-							resultado += peliculas[i].getTitulo() + "\n";
-							modelo.addElement(resultado);
-							txt_seleccion.setText("");
-						
-							
-						
-						}
-
-					}
-					btnAnadir.setEnabled(true);
-				}
-				if (seleccion.equals("3")) {
-					modelo.clear();
-					for (int i = 0; i < peliculas.length; i++) {
-						if (peliculas[i].getGenero() == 3) {
-							String resultado = "";
-							System.out.println(peliculas[i].getTitulo());
-							resultado += peliculas[i].getTitulo() + "\n";
-							modelo.addElement(resultado);
-							txt_seleccion.setText("");
-							
-						}
-					}
-					btnAnadir.setEnabled(true);
-
-				}
-				if (seleccion.equals("4")) {
-					modelo.clear();
-					for (int i = 0; i < peliculas.length; i++) {
-						if (peliculas[i].getGenero() == 4) {
-							String resultado = "";
-							System.out.println(peliculas[i].getTitulo());
-							resultado += peliculas[i].getTitulo() + "\n";
-							modelo.addElement(resultado);
-							txt_seleccion.setText("");
-						}
-					}
-					btnAnadir.setEnabled(true);
-
-				}
-				
-				if ((!seleccion.equals("4")&&(!seleccion.equals("3"))&&(!seleccion.equals("2"))&&(!seleccion.equals("1"))))  {
-					JOptionPane.showMessageDialog(null, "Seleccion incorrecta");
-					txt_seleccion.setText("");
+				controladorPanelGeneros.accionadoBotonAceptarPanelGeneros(txt_seleccion.getText());
 					
-				}
-				
-			
-				lista_pelis.setModel(modelo);
 			}
 		});
 
@@ -189,6 +121,8 @@ public class PanelGeneros extends JPanel {
 
 	}
 
+	
+
 	private void initializeEvents() {
 		this.btnVolver.addActionListener(listenerBotonVolver(this.controladorPanelGeneros));
 	}
@@ -201,16 +135,47 @@ public class PanelGeneros extends JPanel {
 			}
 		};
 	}
+	public void habilitarBtnAnadir() {
+		btnAnadir.setEnabled(true);
+		
+	}
+	public void vaciarTxtSeleccion() {
+		txt_seleccion.setText("");
+	}
+	public void agregarModeloLista(DefaultListModel modeloLista) {
+		lista_pelis.setModel(modeloLista);
+		
+	}
+	public void mostrarSeleccionIncorrecta() {
+		JOptionPane pane = new JOptionPane("Seleccion incorrecta", JOptionPane.INFORMATION_MESSAGE);
+		JDialog dialog = pane.createDialog("Seleccionincorrecta");
+	    dialog.addWindowListener(null);
+	    dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	    dialog.setModalityType(Dialog.ModalityType.MODELESS);
+	    dialog.setVisible(true); 
+	    controladorPanelGeneros.getModelo().getModeloGeneral().esperar(2000);
+           
+                	dialog.setVisible(false);
+                dialog.dispose();
+	}
 
 
-	public static String getSeleccion() {
+	public JTextField getTxt_seleccion() {
+		return txt_seleccion;
+	}
+
+
+
+	public String getSeleccion() {
 		return seleccion;
 	}
 
-	public static void setSeleccion(String seleccion) {
-		PanelGeneros.seleccion = seleccion;
+	public void setSeleccion(String seleccion) {
+		this.seleccion = seleccion;
 	}
-	
+	public JList getLista_pelis() {
+		return lista_pelis;
+	}
 
 	
 	

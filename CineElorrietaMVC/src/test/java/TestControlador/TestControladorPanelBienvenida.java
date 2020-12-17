@@ -42,6 +42,9 @@ public class TestControladorPanelBienvenida {
 	    	.when(spyControladorGeneros)
 	    	.makePanelBienv(any( ControladorPanelBienvenida.class)); 
 		
+		Modelo modelo=new Modelo();
+		spyControladorGeneros = spy(new ControladorPanelBienvenida(modelo, vistaMock, controladorMock)); 
+		
 		spyControladorGeneros.mostrarPanelBienvenida();
 		//verify(vistaMock, times(1)).mostrarPanel(panelBienvMock);
 	}

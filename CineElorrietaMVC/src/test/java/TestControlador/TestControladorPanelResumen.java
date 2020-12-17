@@ -31,7 +31,7 @@ public class TestControladorPanelResumen {
 	private Controlador controladorMock = mock(Controlador.class);
 	private ControladorPanelResumen controladorResumen=new ControladorPanelResumen(modeloMock, vistaMock, controladorMock);
 	private PanelResumen panelResumenMock = mock(PanelResumen.class);
-	private ControladorPanelResumen spyControladorGeneros = spy(new ControladorPanelResumen(modeloMock, vistaMock, controladorMock)); 
+	private ControladorPanelResumen spyControladorResumen = spy(new ControladorPanelResumen(modeloMock, vistaMock, controladorMock)); 
 
 	@Test
 	public void testContructorControladorResumen() {
@@ -44,10 +44,13 @@ public class TestControladorPanelResumen {
 	@Test
 	public void mostrarPanelResumenTest() {
 		doReturn(panelResumenMock)
-	    	.when(spyControladorGeneros)
+	    	.when(spyControladorResumen)
 	    	.makePanelResumen(any(ControladorPanelResumen.class)); 
 		
-		spyControladorGeneros.mostrarPanelResumen();
+		Modelo modelo=new Modelo();
+		spyControladorResumen = spy(new ControladorPanelResumen(modelo, vistaMock, controladorMock));
+		
+		spyControladorResumen.mostrarPanelResumen();
 		//verify(vistaMock, times(1)).mostrarPanel(panelResumenMock);
 	}
 	
@@ -72,7 +75,8 @@ public class TestControladorPanelResumen {
 	
 	@Test
 	public void accionadoBotonRechazarPanelResumenTest() {
-		controladorResumen = new ControladorPanelResumen(modeloMock,
+		Modelo modelo=new Modelo();
+		controladorResumen = new ControladorPanelResumen(modelo,
 				vistaMock, controladorMock);
 		
 		controladorResumen.accionadoBotonRechazarPanelResumen();

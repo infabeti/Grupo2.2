@@ -3,7 +3,9 @@ package Vista;
 import javax.swing.JPanel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
@@ -11,6 +13,7 @@ import Controlador.Controlador;
 import Controlador.ControladorPanelPeliculas;
 import Modelo.Pelicula;
 import java.awt.event.ActionListener;
+import java.awt.Dialog;
 import java.awt.event.ActionEvent;
 import javax.swing.ListSelectionModel;
 
@@ -18,14 +21,16 @@ public class PanelPeliculas extends JPanel {
 	private JButton btnAnadirPelicula;
 	private JLabel lblGenero;
 	private JScrollPane scrollPane;
-	private static JList lista_pelis;
+	private JList lista_pelis;
 	private JPanel txtGenero;
 	DefaultListModel modelo;
+	private ControladorPanelPeliculas controladorPanelPeliculas;
 	
 	/**
 	 * Create the panel.
 	 */
-	public PanelPeliculas(ControladorPanelPeliculas controladorPanelPeliculas) {
+	public PanelPeliculas(ControladorPanelPeliculas controladorPanelPeliculas, String seleccion) {
+		this.controladorPanelPeliculas=controladorPanelPeliculas;
 		setLayout(null);
 		
 		
@@ -44,29 +49,10 @@ public class PanelPeliculas extends JPanel {
 		txtGenero = new JPanel();
 		txtGenero.setBounds(221, 45, 156, 23);
 		add(txtGenero);
-		modelo = new DefaultListModel();
 		
-		Pelicula[] peliculas=controladorPanelPeliculas.getControlador().getPeliculas();
-		 
-		 int genero=Integer.parseInt(PanelGeneros.getSeleccion());
 		
-		 
-		 
-		 
-		modelo.clear();
-		for (int i = 0; i < peliculas.length; i++) {
-			if (peliculas[i].getGenero() == genero) {
-				String resultado = "";
-				System.out.println(peliculas[i].getTitulo());
-				resultado += peliculas[i].getTitulo() + "\n";
-				modelo.addElement(resultado);
-				
-				
-			}
-		}
-		
-		 
-		lista_pelis.setModel(modelo);
+		System.out.println("seleccion>> "+seleccion);
+		lista_pelis.setModel(controladorPanelPeliculas.getModelo().getModeloPeliculas().listaPorGenero(seleccion));
 		
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {
@@ -94,8 +80,22 @@ public class PanelPeliculas extends JPanel {
 	}
 	
 	
+	public void alertaNoMasPelis() {
+		JOptionPane pane = new JOptionPane("No se puede introducir la pelicula, porque no hay tiempo \n"
+				+ "(Esta ventana se cerrará automáticamente en 10 segundos)", JOptionPane.INFORMATION_MESSAGE);
+		JDialog dialog = pane.createDialog("Sin tiempo disponible");
+	    dialog.addWindowListener(null);
+	    dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	    dialog.setModalityType(Dialog.ModalityType.MODELESS);
+	    dialog.setVisible(true); 
+	    controladorPanelPeliculas.getModelo().getModeloGeneral().esperar(10000);
+           
+                dialog.setVisible(false);
+                dialog.dispose();
+	}
 
-	public static JList getLista_pelis() {
+
+	public  JList getLista_pelis() {
 		return lista_pelis;
 	}
 

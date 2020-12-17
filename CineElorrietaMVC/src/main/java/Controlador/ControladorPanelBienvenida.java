@@ -23,12 +23,8 @@ public class ControladorPanelBienvenida {
 	public void mostrarPanelBienvenida() {
 		this.panelBienvenida = new PanelBienvenida(this);
 		this.vista.mostrarPanel(this.panelBienvenida);
-		
-		
-		
-		modelo.esperar(3000);
-		
-		
+	
+		this.modelo.getModeloGeneral().esperar(3000);
 		this.controlador.navegarPanelLogin();
 		
 		

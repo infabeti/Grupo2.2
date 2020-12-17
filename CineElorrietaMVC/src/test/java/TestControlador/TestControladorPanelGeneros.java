@@ -56,9 +56,29 @@ public class TestControladorPanelGeneros {
 		controladorGeneros = new ControladorPanelGeneros(modeloMock,
 				vistaMock, controladorMock);
 		
-		controladorGeneros.accionadoBotonSeleccionarPanelGeneros(1);
+		controladorGeneros.accionadoBotonSeleccionarPanelGeneros("1");
 		
-		verify(controladorMock, times(1)).navegarPanelPeliculas(1);
+		verify(controladorMock, times(1)).navegarPanelPeliculas("1");
+	}
+	@Test
+	public void accionadoBotonAceptarPanelGenerosIncorrectoTest() {
+		Modelo modelo= new Modelo();
+		controladorGeneros = new ControladorPanelGeneros(modelo,
+				vistaMock, controladorMock);
+		
+		controladorGeneros.accionadoBotonAceptarPanelGeneros("5");
+		
+		//verify(controladorMock, times(1)).navegarPanelPeliculas("1");
+	}
+	@Test
+	public void accionadoBotonAceptarPanelGenerosCorrectoTest() {
+		Modelo modelo= new Modelo();
+		controladorGeneros = new ControladorPanelGeneros(modelo,
+				vistaMock, controladorMock);
+		
+		controladorGeneros.accionadoBotonAceptarPanelGeneros("2");
+		
+		//verify(controladorMock, times(1)).navegarPanelPeliculas("1");
 	}
 
 }

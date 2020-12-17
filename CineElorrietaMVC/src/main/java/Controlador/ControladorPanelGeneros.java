@@ -1,6 +1,7 @@
 package Controlador;
 
-import javax.swing.DefaultListModel;
+import java.awt.Dialog;
+
 
 import Modelo.Modelo;
 import Modelo.Pelicula;
@@ -28,7 +29,21 @@ public class ControladorPanelGeneros {
 	public void accionadoBottonVolverPanelGeneros() {
 		this.controlador.navegarPanelBienvenida();
 	}
-	public void accionadoBotonSeleccionarPanelGeneros(int genero) {
+	public void accionadoBotonAceptarPanelGeneros(String seleccion) {
+		if(this.modelo.getModeloGeneral().comprobarGenero(seleccion)) {
+			panelGeneros.agregarModeloLista(this.modelo.getModeloPeliculas().listaPorGenero(seleccion));
+			
+			panelGeneros.setSeleccion(seleccion);
+			panelGeneros.vaciarTxtSeleccion();
+			panelGeneros.habilitarBtnAnadir();
+		
+		}
+		else {
+			panelGeneros.mostrarSeleccionIncorrecta();
+	        panelGeneros.vaciarTxtSeleccion();
+		}
+	}
+	public void accionadoBotonSeleccionarPanelGeneros(String genero) {
 
 		this.controlador.navegarPanelPeliculas(genero);
 	}

@@ -95,7 +95,7 @@ public class PanelEditar extends JPanel {
 	private ActionListener listenerBotonVolver(ControladorPanelEditar controladorPanelEditar) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controladorPanelEdicion.accionadoBotonVolverPanelEditar();
+				controladorPanelEditar.accionadoBotonVolverPanelEditar();
 				System.out.println("Ejecutando evento Boton Volver");
 				//controladorPanelEditar.accionadoBottonVolverPanelEditar();
 			}

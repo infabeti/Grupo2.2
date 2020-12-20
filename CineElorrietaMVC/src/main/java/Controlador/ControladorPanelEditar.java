@@ -25,6 +25,10 @@ public class ControladorPanelEditar {
 	public PanelEditar makePanelEditar(ControladorPanelEditar controladorEditar) {
 		return new PanelEditar(controladorEditar);
 	}
+	public void accionadoBotonVolverPanelEditar() {
+		controlador.navegarPanelEdicion();
+		
+	}
 	
 	public Modelo getModelo() {
 		return modelo;

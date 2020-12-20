@@ -28,11 +28,6 @@ public class ControladorPanelEdicion {
 		return new PanelEdicion(controladorEdicion);
 	}
 
-	public void accionadoBotonVolverPanelEditar() {
-		controlador.navegarPanelEdicion();
-		
-	}
-
 	public Modelo getModelo() {
 		return modelo;
 	}

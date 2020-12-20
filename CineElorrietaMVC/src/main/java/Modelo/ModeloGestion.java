@@ -120,5 +120,33 @@ Pelicula[] auxiliar;
 		}
 		
 	}
+	
+	public boolean editarPelicula(String pelicula, int genero, String tituloNuevo, int duracion) {
+		int posicionEditar=0;
+		Pelicula[] auxiliarEditar=auxiliar;
+		
+		if(encontrarPelicula(pelicula)==true) {
+			
+			//Encontrar la posicion del que quedemos editar
+			for(int i=0;i<auxiliarEditar.length;i++) {	
+				
+				if(auxiliarEditar[i].getTitulo().equals(pelicula)) {
+					posicionEditar=i;			
+				}			
+			}
+			
+			
+			//Editamos en la posicion
+			auxiliarEditar[posicionEditar].setGenero(genero);
+			auxiliarEditar[posicionEditar].setTitulo(tituloNuevo);
+			auxiliarEditar[posicionEditar].setDuracion(duracion);
+			
+			auxiliar=auxiliarEditar;
+			this.modelo.getModeloMovimientos().anadirMovimiento("Editar", pelicula);
+			return true;
+		}else {
+			return false;
+		}
+	}
 
 }

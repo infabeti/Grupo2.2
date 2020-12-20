@@ -38,15 +38,16 @@ public class ControladorPanelEdicion {
 	}
 	
 	public void accionadoBotonAnadir() {
-		/* this.controlador.navegarPanelAnadir(); */
+		this.controlador.navegarPanelAnadir();
 	}
 	
 	public void accionadoBotonCancelar() {
+		this.modelo.getModeloGestion().actualizarAuxiliar();
 		this.controlador.navegarPanelBienvenida();
 	}
 	
 	public void accionadoBotonConfirmar() {
-	/*	this.controlador.navegarPanelResumen2(); */
+		this.controlador.navegarPanelResumen2();
 	}
 
 	public Modelo getModelo() {

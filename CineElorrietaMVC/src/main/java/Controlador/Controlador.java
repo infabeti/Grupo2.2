@@ -17,6 +17,8 @@ public class Controlador {
 	private ControladorPanelEdicion controladorPanelEdicion;
 	private ControladorPanelEditar controladorPanelEditar;
 	private ControladorPanelBorrar controladorPanelBorrar;
+	private ControladorPanelEditarPeliculas controladorPanelEditarPeliculas;
+	private ControladorPanelAnadir controladorPanelAnadir;
 	private ControladorResumen2 controladorResumen2;
 	public Controlador(Modelo modelo, Vista vista) {
 		this.modelo = modelo;
@@ -30,6 +32,8 @@ public class Controlador {
 		this.controladorPanelEdicion = new ControladorPanelEdicion(this.modelo, this.vista, this);
 		this.controladorPanelEditar = new ControladorPanelEditar(this.modelo, this.vista, this);
 		this.controladorPanelBorrar= new ControladorPanelBorrar(this.modelo, this.vista, this);
+		this.controladorPanelEditarPeliculas=new ControladorPanelEditarPeliculas(this.modelo, this.vista, this);
+		this.controladorPanelAnadir=new ControladorPanelAnadir(this.modelo, this.vista, this);
 		this.controladorResumen2= new ControladorResumen2(this.modelo, this.vista, this);
 		this.navegarPanelBienvenida();
 	}
@@ -84,8 +88,20 @@ public class Controlador {
 		
 		
 	}
+	public void navegarPanelEditarPeliculas(String pelicula) {
+		System.out.println("Navegar panel EditarPeliculas");
+		this.controladorPanelEditarPeliculas.mostrarPanelEditarPeliculas(pelicula);
+		
+		
+	}
+	public void navegarPanelAnadir() {
+		System.out.println("Navegar panel Añadir");
+		this.controladorPanelAnadir.mostrarPanelAnadir();
+		
+		
+	}
 	
-	public void navegarResumen2() {
+	public void navegarPanelResumen2() {
 		System.out.println("Navegar panel Edicion");
 		this.controladorResumen2.mostrarPanelResumen2();
 		

@@ -16,11 +16,13 @@ import java.awt.event.ActionEvent;
 
 public class PanelResumen2 extends JPanel {
 	private static JTextArea txtResumen2;
+	private ControladorResumen2 controladorResumen2;
 
 	/**
 	 * Create the panel.
 	 */
 	public PanelResumen2(ControladorResumen2 controladorResumen2) {
+		this.controladorResumen2=controladorResumen2;
 		setLayout(null);
 		
 		JLabel lblResumen2 = new JLabel("RESUMEN:");
@@ -32,14 +34,25 @@ public class PanelResumen2 extends JPanel {
 		txtResumen2.setBounds(75, 63, 297, 192);
 		txtResumen2.setEnabled(false);
 		txtResumen2.setDisabledTextColor(Color.BLACK);
+		txtResumen2.setText(this.controladorResumen2.getModelo().getModeloMovimientos().getResumenMovimientos());
 		add(txtResumen2);
 
 		
 		JButton botoncancelar = new JButton("Cancelar");
+		botoncancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorResumen2.accionadoBotonCancelarPanelResumen2();
+			}
+		});
 		botoncancelar.setBounds(36, 278, 102, 31);
 		add(botoncancelar);
 		
 		JButton botonaceptar = new JButton("Aceptar");
+		botonaceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorResumen2.accionadoBotonAceptarPanelResumen2();
+			}
+		});
 		botonaceptar.setBounds(313, 278, 102, 31);
 		add(botonaceptar);
 

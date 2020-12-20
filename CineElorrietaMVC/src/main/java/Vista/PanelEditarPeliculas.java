@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
 import Controlador.Controlador;
+import Controlador.ControladorPanelEditarPeliculas;
 import Controlador.ControladorPanelPeliculas;
 import Modelo.Pelicula;
 import java.awt.event.ActionListener;
@@ -17,27 +18,31 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import java.awt.Color;
+import javax.swing.DefaultComboBoxModel;
 
 public class PanelEditarPeliculas extends JPanel {
 	private JButton btnConfirmarEdicion;
 	private JLabel lblGenero;
-	private JPanel txtTituloSeleccionado;
-	DefaultListModel modelo;
-	private JTextField TextFTitulo;
-	private JTextField texFDuración;
+	private JTextField textFTitulo;
+	private JTextField texFDuracion;
 	private JLabel lblEditar;
+	private ControladorPanelEditarPeliculas controladorPanelEditarPeliculas;
+	private JTextField txtTituloSeleccionado;
+	private JComboBox comboBoxGeneros;
 	
 	/**
 	 * Create the panel.
 	 */
-	public PanelEditarPeliculas(ControladorPanelPeliculas controladorPanelPeliculas) {
+	public PanelEditarPeliculas(ControladorPanelEditarPeliculas controladorPanelEditarPeliculas, String pelicula) {
+		this.controladorPanelEditarPeliculas=controladorPanelEditarPeliculas;
 		setLayout(null);
 		
 		btnConfirmarEdicion = new JButton("Confirmar");
 		btnConfirmarEdicion.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnConfirmarEdicion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		//		controladorPanelPeliculas.accionadoBotonAnadirPanelPeliculas(lista_pelis);
+				controladorPanelEditarPeliculas.accionadoBotonConfirmarPanelEditarPeliculas(
+						pelicula, comboBoxGeneros.getSelectedIndex()+1, textFTitulo.getText(), Double.parseDouble(texFDuracion.getText()));
 			}
 		});
 		btnConfirmarEdicion.setBounds(270, 387, 168, 23);
@@ -48,37 +53,11 @@ public class PanelEditarPeliculas extends JPanel {
 		lblGenero.setBounds(164, 45, 132, 23);
 		add(lblGenero);
 		
-		txtTituloSeleccionado = new JPanel();
-		txtTituloSeleccionado.setBackground(Color.WHITE);
-		txtTituloSeleccionado.setBounds(108, 79, 250, 23);
-		add(txtTituloSeleccionado);
-		modelo = new DefaultListModel();
-		
-		
-	//	 Pelicula[] peliculas=Controlador.getPeliculas();
-		 
-		// int genero=Integer.parseInt(PanelGeneros.getSeleccion());
-		
-		 
-		 
-		 
-		modelo.clear();
-//		for (int i = 0; i < peliculas.length; i++) {
-//			if (peliculas[i].getGenero() == genero) {
-//				String resultado = "";
-//				System.out.println(peliculas[i].getTitulo());
-//				resultado += peliculas[i].getTitulo() + "\n";
-//				modelo.addElement(resultado);
-//				
-//				
-//			}
-//		}
-		
 		JButton btnVolver = new JButton("Volver");
 		btnVolver.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controladorPanelPeliculas.accionadoBotonVolverPanelPeliculas();
+				controladorPanelEditarPeliculas.accionadoBotonVolverPanelEditarPeliculas();
 			}
 		});
 		btnVolver.setBounds(66, 387, 156, 23);
@@ -89,22 +68,24 @@ public class PanelEditarPeliculas extends JPanel {
 		lblCambiarTitulo.setBounds(66, 201, 108, 23);
 		add(lblCambiarTitulo);
 		
-		JLabel lblDuración = new JLabel("Cambiar Duraci\u00F3n:");
+		JLabel lblDuración = new JLabel("Duraci\u00F3n:");
 		lblDuración.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblDuración.setBounds(66, 273, 117, 23);
 		add(lblDuración);
 		
-		TextFTitulo = new JTextField();
-		TextFTitulo.setBounds(184, 202, 244, 20);
-		add(TextFTitulo);
-		TextFTitulo.setColumns(10);
+		textFTitulo = new JTextField();
+		textFTitulo.setBounds(184, 202, 244, 20);
+		add(textFTitulo);
+		textFTitulo.setColumns(10);
 		
-		texFDuración = new JTextField();
-		texFDuración.setBounds(184, 274, 86, 20);
-		add(texFDuración);
-		texFDuración.setColumns(10);
+		texFDuracion = new JTextField();
+		texFDuracion.setEditable(false);
+		texFDuracion.setBounds(184, 274, 86, 20);
+		add(texFDuracion);
+		texFDuracion.setColumns(10);
 		
-		JComboBox comboBoxGeneros = new JComboBox();
+		comboBoxGeneros = new JComboBox();
+		comboBoxGeneros.setModel(new DefaultComboBoxModel(new String[] {"1. Drama", "2. Comedia", "3. Terror", "4. Ciencia Ficci\u00F3n"}));
 		comboBoxGeneros.setBounds(184, 136, 108, 22);
 		add(comboBoxGeneros);
 		
@@ -117,30 +98,28 @@ public class PanelEditarPeliculas extends JPanel {
 		lblEditar.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblEditar.setBounds(218, 11, 65, 14);
 		add(lblEditar);
+		
+		txtTituloSeleccionado = new JTextField();
+		txtTituloSeleccionado.setEditable(false);
+		txtTituloSeleccionado.setColumns(10);
+		txtTituloSeleccionado.setBounds(106, 86, 244, 20);
+		txtTituloSeleccionado.setText(pelicula);
+		add(txtTituloSeleccionado);
 
 	}
-
-//	public static JList getLista_pelis() {
-//		//return lista_pelis;
-//	}
-
-	public void setLista_pelis(JList lista_pelis) {
-	//	this.lista_pelis = lista_pelis;
+	
+	public void cambiarGenero(int genero) {
+		comboBoxGeneros.setSelectedIndex(genero-1);
+		
+	}
+	public void cambiarTitulo(String titulo) {
+		textFTitulo.setText(titulo);
+	}
+	public void cambiarDuracion(double duracion) {
+		texFDuracion.setText(String.valueOf(duracion));
 	}
 
-	public JPanel getTxtGenero() {
-		return txtTituloSeleccionado;
-	}
 
-	public void setTxtGenero(JPanel txtGenero) {
-		this.txtTituloSeleccionado = txtGenero;
-	}
 
-	public DefaultListModel getModelo() {
-		return modelo;
-	}
 
-	public void setModelo(DefaultListModel modelo) {
-		this.modelo = modelo;
-	}
 }

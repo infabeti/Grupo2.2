@@ -29,6 +29,10 @@ public class ControladorPanelEditar {
 		controlador.navegarPanelEdicion();
 		
 	}
+	public void accionadoBotonSeleccionarPanelEditar(String pelicula){
+		controlador.navegarPanelEditarPeliculas(pelicula);
+		
+	}
 	
 	public Modelo getModelo() {
 		return modelo;

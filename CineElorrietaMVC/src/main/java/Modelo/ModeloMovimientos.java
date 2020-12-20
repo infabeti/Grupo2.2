@@ -6,6 +6,7 @@ private String resumenMovimientos;
 	
 	public ModeloMovimientos(Modelo modelo) {
 		this.modelo=modelo;
+		resumenMovimientos="";
 		
 	}
 	

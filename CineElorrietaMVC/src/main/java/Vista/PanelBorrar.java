@@ -36,6 +36,7 @@ public class PanelBorrar extends JPanel {
 		btnBorrar.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+				controladorPanelBorrar.accionadoBotonBorrarPanelPeliculas(lista_pelis.getSelectedValues());
 				
 				
 			}

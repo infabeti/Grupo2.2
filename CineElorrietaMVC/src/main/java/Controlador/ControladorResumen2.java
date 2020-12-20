@@ -26,6 +26,18 @@ public class ControladorResumen2 {
 	public PanelResumen2 makePanelResumen2(ControladorResumen2 ControladorResumen2) {
 		return new PanelResumen2(ControladorResumen2);
 	}
+	public void accionadoBotonCancelarPanelResumen2() {
+		this.modelo.getModeloGestion().actualizarAuxiliar();
+		this.controlador.navegarPanelBienvenida();
+	
+		
+	}
+	public void accionadoBotonAceptarPanelResumen2() {
+		this.modelo.getModeloGestion().actualizarPeliculas();
+		this.controlador.navegarPanelEdicion();
+	
+		
+	}
 	
 
 	public Modelo getModelo() {

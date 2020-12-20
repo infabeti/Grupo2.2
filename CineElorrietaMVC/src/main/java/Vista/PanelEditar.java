@@ -35,16 +35,22 @@ public class PanelEditar extends JPanel {
 		
 		btnSeleccionar = new JButton("Seleccionar");
 		btnSeleccionar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnSeleccionar.setEnabled(false);
+		btnSeleccionar.setEnabled(true);
 		btnSeleccionar.setBounds(271, 372, 168, 23);
 		add(btnSeleccionar);
 		
 		btnSeleccionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			//	controladorPanelEditar.accionadoBotonSeleccionarPanelEditar();
-				
-				
+					if(lista_pelis.getSelectedValue()==null) {
+					
+					System.out.println("No has seleccionado ninguna pelicula");
+					
+				}
+				else controladorPanelEditar.accionadoBotonSeleccionarPanelEditar(lista_pelis.getSelectedValue().toString());
 			}
+				
+				
+			
 		});
 	
 		JLabel lblPelis = new JLabel("Pel\u00EDculas");

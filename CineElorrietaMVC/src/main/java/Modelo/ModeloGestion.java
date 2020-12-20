@@ -3,10 +3,11 @@ package Modelo;
 public class ModeloGestion {
 	
 private Modelo modelo;
-Pelicula[] auxiliar;
+private Pelicula[] auxiliar;
 
 	public ModeloGestion(Modelo modelo) {
 		this.modelo=modelo;
+		actualizarAuxiliar();
 		
 	}
 	
@@ -16,6 +17,11 @@ Pelicula[] auxiliar;
 	}
 	
 	
+	public Pelicula[] getAuxiliar() {
+		return auxiliar;
+	}
+
+
 	public void actualizarPeliculas() {
 		modelo.getModeloPeliculas().setPeliculas(auxiliar);			
 	}
@@ -42,6 +48,27 @@ Pelicula[] auxiliar;
 		
 				
 	}
+	/**
+	 * 
+	 * @param pelicula Pelicula de la que queremos todos los datos
+	 * @return objeto Pelicula con los datos buscados
+	 */
+	public Pelicula buscarPelicula(String pelicula) {
+		System.out.println("buscando pelicula-> "+pelicula);
+		Pelicula peliElegida = new Pelicula(3,"Fallo al introducir",0);
+
+			for(int i=0;i<auxiliar.length;i++) {			
+				if(auxiliar[i].getTitulo().equals(pelicula)) {
+					peliElegida=new Pelicula(auxiliar[i].getGenero(),auxiliar[i].getTitulo(),auxiliar[i].getDuracion());
+					
+				}		
+			}
+			
+		
+		return peliElegida;
+		
+		
+	}
 	
 	public boolean borrarPelicula(String pelicula) {
 		
@@ -54,7 +81,8 @@ Pelicula[] auxiliar;
 			for(int i=0;i<auxiliarBorrar.length;i++) {
 				
 				if(auxiliarBorrar[i].getTitulo().equals(pelicula)) {
-					posicionBorrar=i;			
+					posicionBorrar=i;	
+					System.out.println("Pelicula borrada-> "+auxiliarBorrar[i].getTitulo());
 				}			
 			}
 			
@@ -80,7 +108,7 @@ Pelicula[] auxiliar;
 				
 	}	
 	
-	public boolean meterPelicula(int genero, String pelicula,int tiempo) {
+	public boolean meterPelicula(int genero, String pelicula,double tiempo) {
 		Pelicula[] auxiliarMeter=new Pelicula[auxiliar.length+1];
 		
 		if(encontrarPelicula(pelicula)==false) {
@@ -121,7 +149,7 @@ Pelicula[] auxiliar;
 		
 	}
 	
-	public boolean editarPelicula(String pelicula, int genero, String tituloNuevo, int duracion) {
+	public boolean editarPelicula(String pelicula, int genero, String tituloNuevo, double duracion) {
 		int posicionEditar=0;
 		Pelicula[] auxiliarEditar=auxiliar;
 		

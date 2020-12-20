@@ -27,6 +27,27 @@ public class ControladorPanelEdicion {
 	public PanelEdicion makePanelEdicion(ControladorPanelEdicion controladorEdicion) {
 		return new PanelEdicion(controladorEdicion);
 	}
+	
+	
+	public void accionadoBotonEditar() {
+		this.controlador.navegarPanelEditar();
+	}
+	
+	public void accionadoBotonBorrar() {
+		this.controlador.navegarPanelBorrar();
+	}
+	
+	public void accionadoBotonAnadir() {
+		/* this.controlador.navegarPanelAnadir(); */
+	}
+	
+	public void accionadoBotonCancelar() {
+		this.controlador.navegarPanelBienvenida();
+	}
+	
+	public void accionadoBotonConfirmar() {
+	/*	this.controlador.navegarPanelResumen2(); */
+	}
 
 	public Modelo getModelo() {
 		return modelo;

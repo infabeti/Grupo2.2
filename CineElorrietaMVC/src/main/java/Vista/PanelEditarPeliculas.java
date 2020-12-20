@@ -57,7 +57,7 @@ public class PanelEditarPeliculas extends JPanel {
 		
 	//	 Pelicula[] peliculas=Controlador.getPeliculas();
 		 
-		 int genero=Integer.parseInt(PanelGeneros.getSeleccion());
+		// int genero=Integer.parseInt(PanelGeneros.getSeleccion());
 		
 		 
 		 

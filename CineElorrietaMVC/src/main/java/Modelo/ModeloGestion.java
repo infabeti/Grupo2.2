@@ -102,5 +102,21 @@ Pelicula[] auxiliar;
 		}
 		
 	}
+	
+	public boolean borrarLista(String[] listaPeliculas) {
+		
+		//Miramos que el array no esté vacío
+		if(listaPeliculas.length>0) {
+			
+			//Recorremos el array y llamamos a el metodo de borrar con cada pelicula
+			for(int i=0;i<listaPeliculas.length;i++) {		
+				borrarPelicula(listaPeliculas[i]);
+			}
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
 
 }

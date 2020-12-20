@@ -74,6 +74,7 @@ public class Controlador {
 	public void navegarPanelEditar() {
 		System.out.println("Navegar panel editar");
 		this.controladorPanelEditar.mostrarPanelEditar();
+	}
 
 	public void navegarPanelBorrar() {
 		System.out.println("Navegar panel Edicion");

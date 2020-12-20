@@ -20,13 +20,16 @@ Pelicula[] auxiliar;
 		modelo.getModeloPeliculas().setPeliculas(auxiliar);			
 	}
 	
+	public void actualizarAuxiliar() {
+		auxiliar = 	modelo.getModeloPeliculas().getPeliculas();			
+	}
 	
 	public boolean encontrarPelicula(String pelicula) {
 		
 		boolean encontrado=false;
 		
-		for(int i=0;i<modelo.getModeloPeliculas().getPeliculas().length;i++) {			
-			if(modelo.getModeloPeliculas().getPeliculas()[i].getTitulo().equals(pelicula)) {
+		for(int i=0;i<auxiliar.length;i++) {			
+			if(auxiliar[i].getTitulo().equals(pelicula)) {
 				encontrado=true;
 			}		
 		}

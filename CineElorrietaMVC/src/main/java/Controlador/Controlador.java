@@ -15,8 +15,12 @@ public class Controlador {
 	private ControladorPanelResumen controladorPanelResumen;
 	private ControladorPanelFin controladorPanelFin;
 	private ControladorPanelEdicion controladorPanelEdicion;
+<<<<<<< HEAD
 	private ControladorPanelEditar controladorPanelEditar;
 	
+=======
+	private ControladorPanelBorrar controladorPanelBorrar;
+>>>>>>> ec35cb5d2213d8c7153285e12e873b93ae386dbd
 	public Controlador(Modelo modelo, Vista vista) {
 		this.modelo = modelo;
 		this.vista = vista;
@@ -27,7 +31,11 @@ public class Controlador {
 		this.controladorPanelResumen = new ControladorPanelResumen(this.modelo, this.vista, this);
 		this.controladorPanelFin = new ControladorPanelFin(this.modelo, this.vista, this);
 		this.controladorPanelEdicion = new ControladorPanelEdicion(this.modelo, this.vista, this);
+<<<<<<< HEAD
 		this.controladorPanelEditar = new ControladorPanelEditar(this.modelo, this.vista, this);
+=======
+		this.controladorPanelBorrar= new ControladorPanelBorrar(this.modelo, this.vista, this);
+>>>>>>> ec35cb5d2213d8c7153285e12e873b93ae386dbd
 		this.navegarPanelBienvenida();
 	}
 	
@@ -70,9 +78,15 @@ public class Controlador {
 		
 		
 	}
+<<<<<<< HEAD
 	public void navegarPanelEditar() {
 		System.out.println("Navegar panel editar");
 		this.controladorPanelEditar.mostrarPanelEditar();
+=======
+	public void navegarPanelBorrar() {
+		System.out.println("Navegar panel Edicion");
+		this.controladorPanelBorrar.mostrarPanelBorrar();
+>>>>>>> ec35cb5d2213d8c7153285e12e873b93ae386dbd
 		
 		
 	}

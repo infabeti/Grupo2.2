@@ -71,6 +71,7 @@ Pelicula[] auxiliar;
 			
 			//Lo igualamos al auxiliar
 			auxiliar=auxiliarBorrarFinal;
+			this.modelo.getModeloMovimientos().anadirMovimiento("Borrar", pelicula);
 				
 			return true;
 		}else {
@@ -95,6 +96,7 @@ Pelicula[] auxiliar;
 			
 			//Lo igualamos al auxiliar
 			auxiliar=auxiliarMeter;
+			this.modelo.getModeloMovimientos().anadirMovimiento("Añadir", pelicula);
 					
 			return true;
 		}else {

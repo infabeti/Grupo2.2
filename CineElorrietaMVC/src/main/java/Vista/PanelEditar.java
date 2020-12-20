@@ -19,9 +19,6 @@ public class PanelEditar extends JPanel {
 	static String seleccion;
 	public PanelEditar(ControladorPanelEditar controladorPanelEditar) {
 
-		// ARRAYLIST PARA PARA PELIS SELECCIONADAS
-		ArrayList <Pelicula> pelis_seleccion = new ArrayList<>();
-
 		this.controladorPanelEditar = controladorPanelEditar;
 		
 		setLayout(null);
@@ -32,21 +29,9 @@ public class PanelEditar extends JPanel {
 		
 		JList lista_pelis = new JList();
 		scrollPane.setViewportView(lista_pelis);
-		lista_pelis.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lista_pelis.setFont(new Font("Tahoma", Font.BOLD, 12));
 		scrollPane.setViewportView(lista_pelis);
-		
-
-		
-	//	Pelicula[] peliculas=controladorPanelEditar.getControlador().getPeliculas();
-	//	DefaultListModel modelo = new DefaultListModel();//necesario crear un modelo con el que llenar el jlist
-		
-//		for(int i=0;i<peliculas.length;i++) {
-//			modelo.addElement(peliculas[i].getTitulo());
-//			
-//		}		
-		//lista_pelis.setModel(modelo);
-		
-		
+		lista_pelis.setModel(controladorPanelEditar.getModelo().getModeloPeliculas().listaTodasPelis());
 		
 		btnSeleccionar = new JButton("Seleccionar");
 		btnSeleccionar.setFont(new Font("Tahoma", Font.BOLD, 11));

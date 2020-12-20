@@ -6,6 +6,7 @@ import javax.swing.JTextArea;
 
 import Controlador.ControladorPanelLogin;
 import Controlador.ControladorPanelResumen;
+import Controlador.ControladorResumen2;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -19,7 +20,7 @@ public class PanelResumen2 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelResumen2(ControladorPanelResumen controladorPanelResumen) {
+	public PanelResumen2(ControladorResumen2 controladorResumen2) {
 		setLayout(null);
 		
 		JLabel lblResumen2 = new JLabel("RESUMEN:");

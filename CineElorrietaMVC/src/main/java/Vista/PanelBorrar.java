@@ -26,6 +26,8 @@ public class PanelBorrar extends JPanel {
 		scrollPane.setBounds(101, 63, 268, 237);
 		add(scrollPane);
 		
+		lista_pelis = new JList();
+        scrollPane.setViewportView(lista_pelis);
 	
 		lista_pelis.setModel(controladorPanelBorrar.getModelo().getModeloPeliculas().listaTodasPelis());
 		

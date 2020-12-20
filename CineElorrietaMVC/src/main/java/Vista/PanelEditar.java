@@ -5,14 +5,16 @@ import java.util.ArrayList;
 import javax.swing.*;
 import java.awt.*;
 
+import Controlador.ControladorPanelEdicion;
 import Controlador.ControladorPanelEditar;
 import Modelo.Pelicula;
 
 @SuppressWarnings("serial")
 public class PanelEditar extends JPanel {
 
-	private JButton btnVolver;
+	private JButton btnVolver, btnSeleccionar ;
 	private ControladorPanelEditar controladorPanelEditar;
+	private ControladorPanelEdicion controladorPanelEdicion;
 	String resultado="";
 	static String seleccion;
 	public PanelEditar(ControladorPanelEditar controladorPanelEditar) {
@@ -35,24 +37,26 @@ public class PanelEditar extends JPanel {
 		
 
 		
-		Pelicula[] peliculas=controladorPanelEditar.getControlador().getPeliculas();
-		DefaultListModel modelo = new DefaultListModel();//necesario crear un modelo con el que llenar el jlist
+	//	Pelicula[] peliculas=controladorPanelEditar.getControlador().getPeliculas();
+	//	DefaultListModel modelo = new DefaultListModel();//necesario crear un modelo con el que llenar el jlist
 		
-		for(int i=0;i<peliculas.length;i++) {
-			modelo.addElement(peliculas[i].getTitulo());
-			
-		}		
-		lista_pelis.setModel(modelo);
+//		for(int i=0;i<peliculas.length;i++) {
+//			modelo.addElement(peliculas[i].getTitulo());
+//			
+//		}		
+		//lista_pelis.setModel(modelo);
 		
 		
 		
-		JButton btnAnadir = new JButton("Seleccionar");
-		btnAnadir.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnAnadir.setEnabled(false);
+		btnSeleccionar = new JButton("Seleccionar");
+		btnSeleccionar.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnSeleccionar.setEnabled(false);
+		btnSeleccionar.setBounds(271, 372, 168, 23);
+		add(btnSeleccionar);
 		
-		btnAnadir.addActionListener(new ActionListener() {
+		btnSeleccionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			//	controladorPanelEditar.accionadoBotonSeleccionarPanelEditar(Integer.parseInt(seleccion));
+			//	controladorPanelEditar.accionadoBotonSeleccionarPanelEditar();
 				
 				
 			}
@@ -65,8 +69,7 @@ public class PanelEditar extends JPanel {
 
 		
 
-		btnAnadir.setBounds(271, 372, 168, 23);
-		add(btnAnadir);
+		
 
 		btnVolver = new JButton("Volver");
 		btnVolver.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -84,12 +87,15 @@ public class PanelEditar extends JPanel {
 	}
 
 	private void initializeEvents() {
+		
+		this.btnVolver.addActionListener(listenerBotonVolver(this.controladorPanelEditar));
 		this.btnVolver.addActionListener(listenerBotonVolver(this.controladorPanelEditar));
 	}
 
 	private ActionListener listenerBotonVolver(ControladorPanelEditar controladorPanelEditar) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelEdicion.accionadoBotonVolverPanelEditar();
 				System.out.println("Ejecutando evento Boton Volver");
 				//controladorPanelEditar.accionadoBottonVolverPanelEditar();
 			}

@@ -22,6 +22,10 @@ public class ControladorPanelBorrar {
 		this.panelBorrar = new PanelBorrar(this);
 		this.vista.mostrarPanel(this.panelBorrar);
 	}
+	public void accionadoBotonCancelarPanelPeliculas() {
+		this.controlador.navegarPanelEdicion();
+		
+	}
 	
 	public PanelBorrar makePanelBorrar(ControladorPanelBorrar controladorBorrar) {
 		return new PanelBorrar(controladorBorrar);

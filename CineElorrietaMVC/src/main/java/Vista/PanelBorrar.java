@@ -11,8 +11,10 @@ public class PanelBorrar extends JPanel {
    
 	private JLabel lblBorrar;
 	private static JList lista_pelis;
+	private ControladorPanelBorrar controladorPanelBorrar;
 	
     public PanelBorrar(ControladorPanelBorrar controladorPanelBorrar){
+    	this.controladorPanelBorrar=controladorPanelBorrar;
         
     	setLayout(null);
     	
@@ -40,6 +42,12 @@ public class PanelBorrar extends JPanel {
 		add(btnBorrar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorPanelBorrar.accionadoBotonCancelarPanelPeliculas();
+				
+			}
+		});
 		btnCancelar.setBounds(255, 340, 88, 23);
 		add(btnCancelar);
 		

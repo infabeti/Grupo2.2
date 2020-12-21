@@ -32,5 +32,17 @@ public class ModeloLoginTest {
 		assertEquals(false,modeloLogin.comprobarUsuario("usuario", "contrasenamal"));
 	
 	}
+	@Test
+	public void comprobarUsuarioAdminTrueTest() {
+		
+		assertEquals(true,modeloLogin.comprobarUsuarioAdmin("admin", "12345"));
+	
+	}
+	
+	@Test
+	public void comprobarUsuarioAdminFalseTest() {
+		assertEquals(false,modeloLogin.comprobarUsuarioAdmin("admin", "contrasenamal"));
+	
+	}
 
 }

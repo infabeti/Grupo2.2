@@ -19,7 +19,9 @@ import Controlador.ControladorPanelPeliculas;
 import Modelo.Modelo;
 import Modelo.ModeloCartelera;
 import Modelo.ModeloGeneral;
+import Modelo.ModeloGestion;
 import Modelo.ModeloLogin;
+import Modelo.ModeloMovimientos;
 import Modelo.ModeloPeliculas;
 import Modelo.Pelicula;
 import Vista.Vista;
@@ -35,6 +37,8 @@ public class ModeloTest {
 		assertEquals(ModeloPeliculas.class, modelo.getModeloPeliculas().getClass());
 		assertEquals(ModeloCartelera.class, modelo.getModeloCartelera().getClass());
 		assertEquals(ModeloLogin.class, modelo.getModeloLogin().getClass());
+		assertEquals(ModeloGestion.class, modelo.getModeloGestion().getClass());
+		assertEquals(ModeloMovimientos.class, modelo.getModeloMovimientos().getClass());
 		
 	}
 	

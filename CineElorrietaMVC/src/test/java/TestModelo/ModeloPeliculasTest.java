@@ -42,6 +42,19 @@ public class ModeloPeliculasTest {
 		modeloPeliculas.listaPorGenero("2");
 	
 	}
+	@Test
+	public void listaPorPelisTest() {
+		Modelo modelo=new Modelo();
+		
+		modeloPeliculas=new ModeloPeliculas(modelo);
+		
+		modeloPeliculas.introducirPrimerasPeliculas();
+		
+		modeloPeliculas.getModelo().getModeloGestion().actualizarAuxiliar();
+		
+		modeloPeliculas.listaTodasPelis();
+	
+	}
 
 	
 }

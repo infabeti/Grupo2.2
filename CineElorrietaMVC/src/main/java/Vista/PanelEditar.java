@@ -46,7 +46,7 @@ public class PanelEditar extends JPanel {
 					System.out.println("No has seleccionado ninguna pelicula");
 					
 				}
-				else controladorPanelEditar.accionadoBotonSeleccionarPanelEditar(lista_pelis.getSelectedValue().toString());
+				else controladorPanelEditar.accionadoBotonSeleccionarPanelEditar(lista_pelis.getSelectedValue().toString().trim());
 			}
 				
 				

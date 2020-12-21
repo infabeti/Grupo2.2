@@ -16,6 +16,7 @@ import org.mockito.Spy;
 
 import Controlador.Controlador;
 import Controlador.ControladorPanelFin;
+import Controlador.ControladorPanelGeneros;
 import Modelo.Modelo;
 import Vista.PanelFin;
 import Vista.Vista;
@@ -45,12 +46,11 @@ public class TestControladorPanelFin {
 		
 		Modelo modelo= new Modelo();
 		
-		controladorFin=new ControladorPanelFin(modelo, vistaMock, controladorMock);
-		
-		
-		
-		//controladorFin.mostrarPanelFin();
+		spyControladorFin = spy(new ControladorPanelFin(modelo, vistaMock, controladorMock)); 
+
+		//spyControladorFin.mostrarPanelFin();
 		//verify(vistaMock, times(1)).mostrarPanel(panelFinMock);
+
 		
 	}
 	

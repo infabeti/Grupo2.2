@@ -23,7 +23,7 @@ public class ControladorPanelAnadir {
 	}
 	
 	
-	public PanelAnadir makePanelLogin(ControladorPanelAnadir controladorAnadir) {
+	public PanelAnadir makePanelAnadir(ControladorPanelAnadir controladorAnadir) {
 		return new PanelAnadir(controladorAnadir);
 	}
 

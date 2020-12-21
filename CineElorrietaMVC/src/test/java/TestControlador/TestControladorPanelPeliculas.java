@@ -50,9 +50,11 @@ public class TestControladorPanelPeliculas {
 	public void mostrarPanelPeliculasTest() {
 		doReturn(panelPeliculasMock)
 	    	.when(spyControladorPeliculas)
-	    	.makePanelPeliculas(any( ControladorPanelPeliculas.class),""); 
+	    	.makePanelPeliculas(any( ControladorPanelPeliculas.class),any(String.class)); 
 		
-		//spyControladorPeliculas.mostrarPanelPeliculas(2);
+		Modelo modelo=new Modelo();
+		spyControladorPeliculas = spy(new ControladorPanelPeliculas(modelo, vistaMock, controladorMock));
+		spyControladorPeliculas.mostrarPanelPeliculas("2");
 		//verify(vistaMock, times(1)).mostrarPanel(panelPeliculasMock);
 	}
 	
@@ -71,39 +73,26 @@ public class TestControladorPanelPeliculas {
 
 }
 	
-			
-	
-			/*
-			public void testAccionadoBotonAnadirPanelPeliculas() {
-				controladorPeliculas = new ControladorPanelPeliculas(modeloMock,
-						vistaMock, controladorMock);
+/*
+	public void testAccionadoBotonAnadirPanelPeliculas() {
+		Modelo modelo=new Modelo();
+		Controlador controlador=new Controlador(modelo,vistaMock);
+		controladorPeliculas = new ControladorPanelPeliculas(modelo,
+						vistaMock, controlador);
 				
 				
-				controladorPeliculas.accionadoBotonAnadirPanelPeliculas(panelPeliculasMock.getLista_pelis());
+		controladorPeliculas.accionadoBotonAnadirPanelPeliculas("Handia");
 				
 				
-				verify(controladorMock, times(0)).navegarPanelGeneros();
-				
-				
-				panelGenerosMock.setSeleccion("1");
-				
-				
-				String[] opciones= {"Handia"};
-				JList nuevalista=new JList(opciones);
-				
-				panelPeliculasMock.setLista_pelis(nuevalista);
-				panelPeliculasMock.getLista_pelis().setSelectedIndex(0);
-				System.out.println(panelPeliculasMock.getLista_pelis().getSelectedIndex());
-				
-				controladorPeliculas.accionadoBotonAnadirPanelPeliculas(nuevalista);
-				
-				
-				verify(controladorMock, times(1)).navegarPanelGeneros();
+		verify(controladorMock, times(0)).navegarPanelGeneros();
+
+
 				
 				
 				
-			}
-			*/
+	}
+	*/
+
 			
 	
 	

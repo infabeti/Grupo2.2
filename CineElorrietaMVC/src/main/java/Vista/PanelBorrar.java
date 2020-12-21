@@ -39,7 +39,7 @@ public class PanelBorrar extends JPanel {
 				//Formatear el array de objetos seleccionados
 				String[] pelisSeleccionadas=new String[lista_pelis.getSelectedValues().length];
 				for(int i=0;i<pelisSeleccionadas.length;i++) {
-					pelisSeleccionadas[i]=String.valueOf(lista_pelis.getSelectedValues()[i]);
+					pelisSeleccionadas[i]=String.valueOf(lista_pelis.getSelectedValues()[i]).trim();
 					System.out.println(String.valueOf(lista_pelis.getSelectedValues()[i]).trim());
 				}
 				controladorPanelBorrar.accionadoBotonBorrarPanelBorrar(pelisSeleccionadas);

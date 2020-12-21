@@ -26,11 +26,11 @@ public class ControladorPanelEditarPeliculas {
 		this.panelEditarPeliculas.cambiarDuracion(peli.getDuracion());
 		this.vista.mostrarPanel(this.panelEditarPeliculas);
 	}
-	/*
-	public PanelEditarPeliculas makePanelEditarPeliculas(ControladorPanelEditarPeliculas controladorEditarPeliculas) {
-		return new PanelEditarPeliculas(controladorEditarPeliculas);
+	
+	public PanelEditarPeliculas makePanelEditarPeliculas(ControladorPanelEditarPeliculas controladorEditarPeliculas, String pelicula) {
+		return new PanelEditarPeliculas(controladorEditarPeliculas, pelicula);
 	}
-	*/
+	
 	public void accionadoBotonVolverPanelEditarPeliculas() {
 		controlador.navegarPanelEditar();
 		

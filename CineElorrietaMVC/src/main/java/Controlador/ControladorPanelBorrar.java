@@ -22,20 +22,13 @@ public class ControladorPanelBorrar {
 		this.panelBorrar = new PanelBorrar(this);
 		this.vista.mostrarPanel(this.panelBorrar);
 	}
-	public void accionadoBotonCancelarPanelPeliculas() {
+	public void accionadoBotonCancelarPanelBorrar() {
 		this.controlador.navegarPanelEdicion();
 		
 	}
-	public void accionadoBotonBorrarPanelPeliculas(Object[] objetosSeleccionados) {
-		String[] pelisSeleccionadas=new String[objetosSeleccionados.length];
-		for(int i=0;i<pelisSeleccionadas.length;i++) {
-			pelisSeleccionadas[i]=String.valueOf(objetosSeleccionados[i]);
-			System.out.println(String.valueOf(objetosSeleccionados[i]).trim());
-		}
-		
+	public void accionadoBotonBorrarPanelBorrar(String[] pelisSeleccionadas) {
 		
 		this.modelo.getModeloGestion().borrarLista(pelisSeleccionadas);
-
 		
 		this.controlador.navegarPanelEdicion();
 		

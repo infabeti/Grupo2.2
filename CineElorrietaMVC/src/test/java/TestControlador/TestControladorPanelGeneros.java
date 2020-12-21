@@ -42,7 +42,7 @@ public class TestControladorPanelGeneros {
 
 	//testeo del boton que nos lleva al panel de bienvenida
 	@Test
-	public void accionadoBottonVolverPanelProductosTest() {
+	public void accionadoBottonVolverPanelGenerosTest() {
 		controladorGeneros = new ControladorPanelGeneros(modeloMock,
 				vistaMock, controladorMock);
 		

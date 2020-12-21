@@ -36,7 +36,13 @@ public class PanelBorrar extends JPanel {
 		btnBorrar.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				controladorPanelBorrar.accionadoBotonBorrarPanelPeliculas(lista_pelis.getSelectedValues());
+				//Formatear el array de objetos seleccionados
+				String[] pelisSeleccionadas=new String[lista_pelis.getSelectedValues().length];
+				for(int i=0;i<pelisSeleccionadas.length;i++) {
+					pelisSeleccionadas[i]=String.valueOf(lista_pelis.getSelectedValues()[i]);
+					System.out.println(String.valueOf(lista_pelis.getSelectedValues()[i]).trim());
+				}
+				controladorPanelBorrar.accionadoBotonBorrarPanelBorrar(pelisSeleccionadas);
 				
 				
 			}
@@ -47,7 +53,7 @@ public class PanelBorrar extends JPanel {
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controladorPanelBorrar.accionadoBotonCancelarPanelPeliculas();
+				controladorPanelBorrar.accionadoBotonCancelarPanelBorrar();
 				
 			}
 		});

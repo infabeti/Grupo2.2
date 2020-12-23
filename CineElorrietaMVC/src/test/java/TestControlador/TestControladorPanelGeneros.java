@@ -42,7 +42,7 @@ public class TestControladorPanelGeneros {
 
 	//testeo del boton que nos lleva al panel de bienvenida
 	@Test
-	public void accionadoBottonVolverPanelProductosTest() {
+	public void accionadoBottonVolverPanelGenerosTest() {
 		controladorGeneros = new ControladorPanelGeneros(modeloMock,
 				vistaMock, controladorMock);
 		
@@ -66,6 +66,8 @@ public class TestControladorPanelGeneros {
 		controladorGeneros = new ControladorPanelGeneros(modelo,
 				vistaMock, controladorMock);
 		
+		controladorGeneros.mostrarPanelGeneros();
+		
 		controladorGeneros.accionadoBotonAceptarPanelGeneros("5");
 		
 		//verify(controladorMock, times(1)).navegarPanelPeliculas("1");
@@ -75,6 +77,7 @@ public class TestControladorPanelGeneros {
 		Modelo modelo= new Modelo();
 		controladorGeneros = new ControladorPanelGeneros(modelo,
 				vistaMock, controladorMock);
+		controladorGeneros.mostrarPanelGeneros();
 		
 		controladorGeneros.accionadoBotonAceptarPanelGeneros("2");
 		

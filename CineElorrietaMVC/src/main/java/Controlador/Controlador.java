@@ -14,6 +14,12 @@ public class Controlador {
 	private ControladorPanelPeliculas controladorPanelPeliculas;
 	private ControladorPanelResumen controladorPanelResumen;
 	private ControladorPanelFin controladorPanelFin;
+	private ControladorPanelEdicion controladorPanelEdicion;
+	private ControladorPanelEditar controladorPanelEditar;
+	private ControladorPanelBorrar controladorPanelBorrar;
+	private ControladorPanelEditarPeliculas controladorPanelEditarPeliculas;
+	private ControladorPanelAnadir controladorPanelAnadir;
+	private ControladorResumen2 controladorResumen2;
 	public Controlador(Modelo modelo, Vista vista) {
 		this.modelo = modelo;
 		this.vista = vista;
@@ -23,6 +29,12 @@ public class Controlador {
 		this.controladorPanelPeliculas = new ControladorPanelPeliculas(this.modelo, this.vista, this);
 		this.controladorPanelResumen = new ControladorPanelResumen(this.modelo, this.vista, this);
 		this.controladorPanelFin = new ControladorPanelFin(this.modelo, this.vista, this);
+		this.controladorPanelEdicion = new ControladorPanelEdicion(this.modelo, this.vista, this);
+		this.controladorPanelEditar = new ControladorPanelEditar(this.modelo, this.vista, this);
+		this.controladorPanelBorrar= new ControladorPanelBorrar(this.modelo, this.vista, this);
+		this.controladorPanelEditarPeliculas=new ControladorPanelEditarPeliculas(this.modelo, this.vista, this);
+		this.controladorPanelAnadir=new ControladorPanelAnadir(this.modelo, this.vista, this);
+		this.controladorResumen2= new ControladorResumen2(this.modelo, this.vista, this);
 		this.navegarPanelBienvenida();
 	}
 	
@@ -59,7 +71,42 @@ public class Controlador {
 		
 		
 	}
+	public void navegarPanelEdicion() {
+		System.out.println("Navegar panel Edicion");
+		this.controladorPanelEdicion.mostrarPanelEdicion();
+		
+		
+	}
+	public void navegarPanelEditar() {
+		System.out.println("Navegar panel editar");
+		this.controladorPanelEditar.mostrarPanelEditar();
+	}
+
+	public void navegarPanelBorrar() {
+		System.out.println("Navegar panel Edicion");
+		this.controladorPanelBorrar.mostrarPanelBorrar();
+		
+		
+	}
+	public void navegarPanelEditarPeliculas(String pelicula) {
+		System.out.println("Navegar panel EditarPeliculas");
+		this.controladorPanelEditarPeliculas.mostrarPanelEditarPeliculas(pelicula);
+		
+		
+	}
+	public void navegarPanelAnadir() {
+		System.out.println("Navegar panel Añadir");
+		this.controladorPanelAnadir.mostrarPanelAnadir();
+		
+		
+	}
 	
+	public void navegarPanelResumen2() {
+		System.out.println("Navegar panel Edicion");
+		this.controladorResumen2.mostrarPanelResumen2();
+		
+		
+	}
 
 	public ControladorPanelPeliculas getControladorPanelPeliculas() {
 		return controladorPanelPeliculas;

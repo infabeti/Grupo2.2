@@ -77,6 +77,27 @@ private Pelicula[] peliculas = new Pelicula[16];
 
 
 		}
+	/**
+	 * 
+	 * @return un DefaultListModel con una lista de todas las peliculas del auxiliar en Edición
+	 */
+	public DefaultListModel listaTodasPelis() {
+		DefaultListModel modelo=new DefaultListModel();
+
+			modelo.clear();
+		
+			for (int i = 0; i < this.modelo.getModeloGestion().getAuxiliar().length; i++) {
+
+					String resultado = "";
+					resultado += this.modelo.getModeloGestion().getAuxiliar()[i].getTitulo() + "\n";
+					modelo.addElement(resultado);
+					
+				}
+			
+		return modelo;
+
+
+		}
 
 	
 

@@ -151,7 +151,6 @@ public class PanelGeneros extends JPanel {
 		JDialog dialog = pane.createDialog("Seleccionincorrecta");
 	    dialog.addWindowListener(null);
 	    dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-	    dialog.setModalityType(Dialog.ModalityType.MODELESS);
 	    dialog.setVisible(true); 
 	    controladorPanelGeneros.getModelo().getModeloGeneral().esperar(2000);
            

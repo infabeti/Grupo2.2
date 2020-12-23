@@ -33,6 +33,10 @@ public class ControladorPanelLogin {
 			this.controlador.navegarPanelGeneros();
 			return true;
 		}
+		else if(this.modelo.getModeloLogin().comprobarUsuarioAdmin(usuario2, pass)) {
+			this.controlador.navegarPanelEdicion();
+			return true;
+		}
 		else return false;
 		
 	}

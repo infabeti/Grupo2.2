@@ -24,6 +24,8 @@ public class Modelo {
 	private ModeloLogin modeloLogin;
 	private ModeloPeliculas modeloPeliculas;
 	private ModeloCartelera modeloCartelera;
+	private ModeloGestion modeloGestion;
+	private ModeloMovimientos modeloMovimientos;
 	
 	
 
@@ -32,6 +34,8 @@ public class Modelo {
 		this.modeloLogin=new ModeloLogin(this);
 		this.modeloPeliculas=new ModeloPeliculas(this);
 		this.modeloCartelera=new ModeloCartelera(this);
+		this.modeloGestion=new ModeloGestion(this);
+		this.modeloMovimientos=new ModeloMovimientos(this);
 	
 		this.modeloPeliculas.introducirPrimerasPeliculas();
 		
@@ -59,6 +63,21 @@ public class Modelo {
 	public ModeloCartelera getModeloCartelera() {
 		return modeloCartelera;
 	}
+
+
+
+	public ModeloGestion getModeloGestion() {
+		return modeloGestion;
+	}
+
+
+
+	public ModeloMovimientos getModeloMovimientos() {
+		return modeloMovimientos;
+	}
+
+
+
 
 
 }

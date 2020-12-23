@@ -86,7 +86,6 @@ public class PanelPeliculas extends JPanel {
 		JDialog dialog = pane.createDialog("Sin tiempo disponible");
 	    dialog.addWindowListener(null);
 	    dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-	    dialog.setModalityType(Dialog.ModalityType.MODELESS);
 	    dialog.setVisible(true); 
 	    controladorPanelPeliculas.getModelo().getModeloGeneral().esperar(10000);
            
